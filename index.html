@@ -3,50 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AA’s Yardmen | Glasgow's Outdoor Cleaning & Garden Experts</title>
-  <meta name="description" content="AA’s Yardmen offers professional garden maintenance, pressure washing, and outdoor cleaning services in Glasgow. Text us your job & get a fast quote." />
-  <meta name="keywords" content="Glasgow gardening, yard cleanup, pressure washing, AA’s Yardmen, landscaping, exterior cleaning" />
-  <meta name="author" content="AA’s Yardmen" />
+  <title>AA’s Yardmen | Garden & Outdoor Maintenance Glasgow</title>
+  <meta name="description" content="Professional garden maintenance, jet washing, and outdoor cleaning in Glasgow. Text us your job and get a fast quote." />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
-    body { font-family: 'Segoe UI', sans-serif; }
+    body {
+      font-family: system-ui, sans-serif;
+      line-height: 1.6;
+    }
     .hero {
-      background: linear-gradient(to bottom right, #198754, #145c32);
+      background: linear-gradient(to right, #155e33, #2e7d52);
       color: white;
-      padding: 80px 20px;
       text-align: center;
+      padding: 60px 20px;
+    }
+    .hero h1 {
+      font-size: 2rem;
     }
     .btn-text {
-      background: white;
-      color: #198754;
-      font-weight: bold;
+      background-color: #ffffff;
+      color: #155e33;
+      font-weight: 600;
     }
     .btn-text:hover {
-      background: #e6f3e9;
-      color: #145c32;
+      background-color: #e0f2e9;
+      color: #0d3a22;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
     }
     .service-icon {
       font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    .footer {
-      background: #198754;
-      color: white;
-      text-align: center;
-      padding: 20px 10px;
-    }
-    input, textarea {
-      font-size: 1rem;
     }
     .testimonial {
       font-style: italic;
-      margin-bottom: 1rem;
     }
     .gallery img {
       width: 100%;
-      height: auto;
-      margin-bottom: 15px;
       border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+    .footer {
+      background: #155e33;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+    }
+    .footer a {
+      color: #d0f0e0;
+    }
+    .alert-warning {
+      background-color: #fff3cd;
+      color: #856404;
+      border-color: #ffeeba;
+    }
+    .btn-success {
+      background-color: #28a745;
+      color: white;
+    }
+    .position-fixed {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
     }
   </style>
 </head>
@@ -55,56 +75,36 @@
 <!-- Hero Section -->
 <section class="hero">
   <div class="container">
-    <h1 class="display-5 fw-bold">Transform Your Outdoors with AA’s Yardmen</h1>
-    <p class="lead">Professional garden maintenance, pressure washing, and more in Glasgow.</p>
-    <a href="sms:+447123456789?body=Hi%20AA%E2%80%99s%20Yardmen%2C%20I%20need%20help%20with..." class="btn btn-lg btn-text mt-3">Text Us Your Job</a>
+    <h1 class="mb-3">Reliable Garden & Outdoor Maintenance in Glasgow</h1>
+    <p class="mb-4">Lawn care, jet washing, garden cleanups & more — all with friendly, local service.</p>
+    <a href="sms:+447123456789?body=Hi%20I%20need%20help%20with..." class="btn btn-text btn-lg" aria-label="Text Us to Book">Text Us to Book</a>
   </div>
 </section>
 
 <!-- Services -->
 <section class="py-5">
   <div class="container">
-    <h2 class="text-center mb-4">Our Services</h2>
-    <div class="row text-center g-4">
-      <div class="col-6 col-md-3">
-        <div class="service-icon">🌿</div>
-        <h6>Garden Maintenance</h6>
-        <p>Regular mowing, edging, and fertilization.</p>
+    <h2 class="section-title">Our Services</h2>
+    <div class="row text-center">
+      <div class="col-6 col-md-3 mb-4">
+        <div class="service-icon">🌱</div>
+        <h6>Lawn Cutting</h6>
+        <p>Regular grass cutting and edging.</p>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="service-icon">🧼</div>
-        <h6>Pressure Washing</h6>
-        <p>Driveways, patios, and exterior walls cleaned.</p>
+      <div class="col-6 col-md-3 mb-4">
+        <div class="service-icon">🧽</div>
+        <h6>Jet Washing</h6>
+        <p>Clean driveways, patios & walls.</p>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="service-icon">🧹</div>
-        <h6>Gutter Cleaning</h6>
-        <p>Clearing debris to prevent water damage.</p>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="service-icon">♻️</div>
-        <h6>Waste Clearance</h6>
-        <p>Removal of overgrown vegetation and waste.</p>
-      </div>
-      <div class="col-6 col-md-3">
+      <div class="col-6 col-md-3 mb-4">
         <div class="service-icon">✂️</div>
         <h6>Hedge Trimming</h6>
-        <p>Shaping and maintaining hedges and shrubs.</p>
+        <p>Neatly shaped hedges & shrubs.</p>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="service-icon">❄️</div>
-        <h6>Snow Removal</h6>
-        <p>Clearing snow from driveways and walkways.</p>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="service-icon">🎨</div>
-        <h6>Graffiti Removal</h6>
-        <p>Safe and effective removal of unwanted graffiti.</p>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="service-icon">🏡</div>
-        <h6>Landscaping</h6>
-        <p>Design and transform your outdoor spaces.</p>
+      <div class="col-6 col-md-3 mb-4">
+        <div class="service-icon">🗑️</div>
+        <h6>Rubbish Removal</h6>
+        <p>Garden waste, junk & unwanted items cleared.</p>
       </div>
     </div>
   </div>
@@ -113,18 +113,18 @@
 <!-- Testimonials -->
 <section class="bg-light py-5">
   <div class="container">
-    <h2 class="text-center mb-4">What Our Customers Say</h2>
+    <h2 class="section-title">Happy Customers</h2>
     <div class="testimonial text-center">
-      <p>"AA's Yardmen transformed my overgrown garden into a beautiful outdoor space. Highly recommend!"</p>
-      <small>- Jane D., Glasgow</small>
+      <p>"Outstanding service – our garden looks fantastic again!"</p>
+      <small>- Sarah L., Southside</small>
     </div>
-    <div class="testimonial text-center">
-      <p>"Professional and efficient service. My driveway looks brand new after their pressure washing."</p>
-      <small>- Mark S., Glasgow</small>
+    <div class="testimonial text-center mt-4">
+      <p>"Turned up on time, friendly and tidy. Highly recommended."</p>
+      <small>- Tom W., Dennistoun</small>
     </div>
-    <div class="testimonial text-center">
-      <p>"Quick, affordable, and tidy. The team cleaned up my yard in no time!"</p>
-      <small>- Sarah L., Glasgow</small>
+    <div class="testimonial text-center mt-4">
+      <p>"Our patio is spotless after the jet wash. Great value for money."</p>
+      <small>- Aisha M., Shawlands</small>
     </div>
   </div>
 </section>
@@ -132,38 +132,43 @@
 <!-- Gallery -->
 <section class="py-5">
   <div class="container">
-    <h2 class="text-center mb-4">Before & After</h2>
-    <div class="row gallery">
-      <div class="col-6 col-md-4">
-        <img src="https://via.placeholder.com/300x200?text=Before" alt="Before Image">
+    <h2 class="section-title">Before & After Gallery</h2>
+    <div class="row">
+      <div class="col-6 col-md-3">
+        <img src="https://placehold.co/300x200?text=Before" alt="Before garden cleanup" loading="lazy">
       </div>
-      <div class="col-6 col-md-4">
-        <img src="https://via.placeholder.com/300x200?text=After" alt="After Image">
+      <div class="col-6 col-md-3">
+        <img src="https://placehold.co/300x200?text=After" alt="After garden cleanup" loading="lazy">
       </div>
-      <div class="col-6 col-md-4">
-        <img src="https://via.placeholder.com/300x200?text=Before" alt="Before Image">
+      <div class="col-6 col-md-3">
+        <img src="https://placehold.co/300x200?text=Before" alt="Before pressure wash" loading="lazy">
       </div>
-      <div class="col-6 col-md-4">
-        <img src="https://via.placeholder.com/300x200?text=After" alt="After Image">
+      <div class="col-6 col-md-3">
+        <img src="https://placehold.co/300x200?text=After" alt="After pressure wash" loading="lazy">
       </div>
     </div>
   </div>
 </section>
 
-<!-- Contact Form -->
-<section class="py-5 bg-light">
+<!-- Emergency Alert -->
+<div class="alert alert-warning text-center" role="alert">
+  Need urgent help? Same-day garden clearouts available — text us now!
+</div>
+
+<!-- Contact -->
+<section class="bg-light py-5">
   <div class="container">
-    <h2 class="text-center mb-4">Get in Touch</h2>
-    <p class="text-center">Prefer email? Use the form below and we'll get back to you promptly.</p>
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="mt-4">
+    <h2 class="section-title">Get a Quick Quote</h2>
+    <p class="text-center mb-4">Prefer email? Fill in this form and we’ll get back to you.</p>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
       <div class="mb-3">
-        <input type="text" name="name" class="form-control" placeholder="Your Name" required />
+        <input type="text" name="name" class="form-control" placeholder="Your name" required>
       </div>
       <div class="mb-3">
-        <input type="email" name="email" class="form-control" placeholder="Your Email" required />
+        <input type="email" name="email" class="form-control" placeholder="Your email" required>
       </div>
       <div class="mb-3">
-        <textarea name="message" rows="4" class="form-control" placeholder="Tell us about your garden or job..." required></textarea>
+        <textarea name="message" rows="4" class="form-control" placeholder="What do you need help with?" required></textarea>
       </div>
       <div class="d-grid">
         <button type="submit" class="btn btn-success">Send Message</button>
@@ -172,29 +177,52 @@
   </div>
 </section>
 
-<!-- Operating Hours -->
+<!-- Opening Hours -->
 <section class="py-5">
   <div class="container">
-    <h2 class="text-center mb-4">Operating Hours</h2>
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-6">
-        <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between"><span>Monday to Friday</span><span>8:00 AM – 6:00 PM</span></li>
-          <li class="list-group-item d-flex justify-content-between"><span>Saturday</span><span>10:00 AM – 4:00 PM</span></li>
-          <li class="list-group-item d-flex justify-content-between"><span>Sunday</span><span>Closed</span></li>
-        </ul>
-      </div>
-    </div>
+    <h2 class="section-title">Opening Hours</h2>
+    <ul class="list-group list-group-flush text-center">
+      <li class="list-group-item">Mon–Fri: 8:00am – 6:00pm</li>
+      <li class="list-group-item">Saturday: 10:00am – 4:00pm</li>
+      <li class="list-group-item">Sunday: Closed</li>
+    </ul>
   </div>
 </section>
 
 <!-- Footer -->
 <footer class="footer">
   <div class="container">
-    <p class="mb-0">&copy; 2025 AA’s Yardmen | Text us on +44 7123 456789 | Glasgow based</p>
-    <p class="mb-0">Follow us on <a href="https://www.facebook.com/p/AAs-Yardmen-100089520822216/" class="text-white">Facebook</a> and <a href="https://nextdoor.co.uk/pages/aas-yardmen-glasgow-gb-sct/" class="text-white">Nextdoor</a></p>
+    <p class="mb-1">© 2025 AA’s Yardmen – Glasgow Based</p>
+    <p class="mb-1">Text us on <strong>+44 7123 456789</strong></p>
+    <p class="mb-0">
+      <a href="https://www.facebook.com/p/AAs-Yardmen-100089520822216/" target="_blank">Facebook</a> |
+      <a href="https://nextdoor.co.uk/pages/aas-yardmen-glasgow-gb-sct/" target="_blank">Nextdoor</a>
+    </p>
   </div>
 </footer>
+
+<!-- Sticky Text Us Button -->
+<a href="sms:+447123456789?body=Hi%20I%20need%20help%20with..." class="btn btn-success position-fixed" aria-label="Text Us for Service">
+  Text Us
+</a>
+
+<!-- Schema Markup for Local SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "AA’s Yardmen",
+  "image": "https://yourdomain.com/logo.jpg",
+  "telephone": "+447123456789",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Glasgow",
+    "addressCountry": "GB"
+  },
+  "url": "https://yourgithubusername.github.io/aas-yardmen/",
+  "description": "Affordable garden and outdoor maintenance services in Glasgow."
+}
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
