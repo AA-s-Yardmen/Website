@@ -1,0 +1,192 @@
+body, html {
+  font-family: 'Rubik', sans-serif !important;
+  background: #f8fafb;
+}
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,rgba(0,0,0,0.5) 60%,rgba(0,0,0,0.7) 100%);
+  z-index: 1;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+}
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+.text-shadow {
+  text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+.scroll-down-arrow {
+  animation: bounce 2s infinite;
+  color: #fff;
+  text-decoration: none;
+}
+@keyframes bounce {
+  0%,100% { transform: translateY(0);}
+  50% { transform: translateY(12px);}
+}
+.card {
+  border-radius: 0.75rem;
+}
+.card-img-top {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  height: 220px;
+  object-fit: cover;
+}
+.service-card .card-title i {
+  color: #198754;
+}
+#gallery img {
+  object-fit: cover;
+  width: 100%;
+  height: 220px;
+}
+blockquote {
+  font-size: 1.2rem;
+  font-style: italic;
+}
+.before-after-slider {
+  height: 320px;
+  background: #222;
+}
+.before-after-slider img {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: clip-path 0.3s;
+}
+.before-after-slider .before-img {
+  z-index: 1;
+}
+.before-after-slider .after-img {
+  z-index: 2;
+  clip-path: inset(0 50% 0 0);
+}
+.before-after-slider .slider-range {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  appearance: none;
+  height: 2px;
+}
+.before-after-slider .slider-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 24px; height: 24px;
+  background: #198754;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+.before-after-slider .slider-range::-moz-range-thumb {
+  width: 24px; height: 24px;
+  background: #198754;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+.stat-number {
+  font-family: 'Rubik', sans-serif;
+}
+footer a {
+  text-decoration: underline;
+}
+footer img {
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
+}
+.btn-success, .btn-outline-success {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.modal-content {
+  border-radius: 1rem;
+}
+#leafletMap {
+  width: 100%;
+  height: 350px;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 24px rgba(25,135,84,0.08);
+  margin-bottom: 0;
+}
+section {
+  scroll-margin-top: 80px;
+  margin-bottom: 3rem;
+}
+[data-aos] {
+  transition-property: opacity, transform;
+}
+.bg-white {
+  background: #fff !important;
+}
+.bg-light {
+  background: #f8fafb !important;
+}
+
+/* FAQ Accordion */
+.faq-accordion .accordion-button {
+  font-weight: 500;
+  color: #198754;
+  background: #e8f5e9;
+}
+.faq-accordion .accordion-body {
+  background: #fff;
+}
+
+/* Price Calculator */
+#priceCalculator {
+  background: #e8f5e9;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 12px rgba(25,135,84,0.08);
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+}
+#priceResult {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #198754;
+}
+
+/* Weather Widget */
+.weather-widget {
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 12px rgba(25,135,84,0.08);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.weather-widget .temp {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #198754;
+}
+.weather-widget .desc {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+@media (max-width: 767px) {
+  .hero h1 { font-size: 2rem; }
+  .card-img-top, #gallery img {
+    height: 140px;
+  }
+  .before-after-slider { height: 180px; }
+}
