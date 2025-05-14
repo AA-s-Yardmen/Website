@@ -126,9 +126,8 @@ footer img {
   box-shadow: 0 4px 24px rgba(25,135,84,0.08);
   margin-bottom: 0;
 }
-section {
+section, [id] {
   scroll-margin-top: 80px;
-  margin-bottom: 3rem;
 }
 [data-aos] {
   transition-property: opacity, transform;
@@ -181,6 +180,12 @@ section {
 .weather-widget .desc {
   font-size: 1.1rem;
   color: #555;
+}
+
+/* Optional: fallback for missing images (shows a gray bg if image missing) */
+img[alt][src*="hero-bg.jpg"], img[alt][src*="google-reviews.png"] {
+  background: #e0e0e0;
+  color: #888;
 }
 
 @media (max-width: 767px) {

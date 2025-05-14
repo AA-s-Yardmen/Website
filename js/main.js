@@ -1,26 +1,65 @@
-// Smooth scroll for anchor links
+// Smooth scroll for anchor links with navbar offset, skip empty hashes
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
-    const target = document.querySelector(this.getAttribute('href'));
+    const href = this.getAttribute('href');
+    if (!href || href === '#') return; // Ignore empty hash links
+    const target = document.querySelector(href);
     if (target) {
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
+      // Get navbar height
+      const navbar = document.querySelector('.navbar');
+      const offset = navbar ? navbar.offsetHeight : 0;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset + 1;
+      window.scrollTo({ top, behavior: 'smooth' });
+
+      // Collapse navbar on mobile after click
+      const navCollapse = document.getElementById('mainNav');
+      if (navCollapse && navCollapse.classList.contains('show')) {
+        const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navCollapse);
+        bsCollapse.hide();
+      }
     }
   });
 });
 
-// FAQ smooth scroll
+// Highlight active nav link on scroll (skip if section missing)
+document.addEventListener('scroll', function() {
+  const sections = ['services', 'gallery', 'testimonials', 'contact', 'faq', 'about', 'how-it-works', 'reviews', 'projects'];
+  let current = '';
+  const scrollPos = window.scrollY + (document.querySelector('.navbar')?.offsetHeight || 0) + 10;
+  for (const id of sections) {
+    const el = document.getElementById(id);
+    if (el && el.offsetTop <= scrollPos) current = id;
+  }
+  document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.classList.remove('active');
+      link.removeAttribute('aria-current');
+    }
+  });
+});
+
+// FAQ smooth scroll (defensive)
 document.querySelectorAll('a[href="#faq"]').forEach(link => {
   link.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.getElementById('faq').scrollIntoView({ behavior: 'smooth' });
+    const faq = document.getElementById('faq');
+    if (faq) {
+      e.preventDefault();
+      faq.scrollIntoView({ behavior: 'smooth' });
+    }
   });
 });
 
 // Autofill service in booking modal
 document.querySelectorAll('.book-btn').forEach(btn => {
   btn.addEventListener('click', function() {
-    document.getElementById('serviceType').value = this.getAttribute('data-service');
+    const serviceType = document.getElementById('serviceType');
+    if (serviceType) {
+      serviceType.value = this.getAttribute('data-service');
+    }
   });
 });
 
@@ -45,7 +84,7 @@ document.getElementById('bookingForm')?.addEventListener('submit', async functio
     });
     if (res.ok) {
       const modal = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
-      modal.hide();
+      if (modal) modal.hide();
       setTimeout(() => {
         // Show Bootstrap Toast instead of alert
         const toastEl = document.getElementById('bookingToast');
@@ -146,4 +185,21 @@ document.getElementById('calculatorForm')?.addEventListener('submit', function(e
   if (service === 'window') price = { small: 20, medium: 30, large: 45 }[size];
   if (service === 'pressure') price = { small: 30, medium: 50, large: 75 }[size];
   document.getElementById('priceResult').textContent = `Estimated Price: £${price}`;
+});
+
+// Defensive: Only initialize map if container exists and not already initialized
+document.addEventListener('DOMContentLoaded', () => {
+  const mapContainer = document.getElementById('leafletMap');
+  if (mapContainer && window.L && !mapContainer._leaflet_id) {
+    var map = L.map('leafletMap', { scrollWheelZoom: false, zoomControl: true }).setView([55.86739054658849, -4.122231786419321], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+    L.circle([55.86739054658849, -4.122231786419321], {
+      color: '#198754',
+      fillColor: '#198754',
+      fillOpacity: 0.15,
+      radius: 2000
+    }).addTo(map);
+  }
 });
