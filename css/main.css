@@ -2,25 +2,35 @@ body, html {
   font-family: 'Rubik', sans-serif !important;
   background: #f8fafb;
 }
+
+/* --- HERO SECTION --- */
 .hero {
   position: relative;
-  min-height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  min-height: 85vh;
+  background: #1a1a1a;
+}
+.hero-bg-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  transform: scale(1.1);
+  animation: slowZoom 30s infinite alternate;
 }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg,rgba(0,0,0,0.5) 60%,rgba(0,0,0,0.7) 100%);
+  background: linear-gradient(45deg,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.5) 100%);
   z-index: 1;
 }
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  z-index: 1;
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
 }
 .hero .container {
   position: relative;
@@ -33,6 +43,21 @@ body, html {
   animation: bounce 2s infinite;
   color: #fff;
   text-decoration: none;
+  font-size: 2rem !important;
+  opacity: 0.7;
+}
+.scroll-down-arrow span,
+.scroll-down-arrow i {
+  font-size: 2rem !important;
+  color: #fff;
+  opacity: 0.7;
+  filter: drop-shadow(0 2px 6px rgba(25,135,84,0.15));
+}
+@media (max-width: 768px) {
+  .scroll-down-arrow span,
+  .scroll-down-arrow i {
+    font-size: 1.5rem !important;
+  }
 }
 @keyframes bounce {
   0%,100% { transform: translateY(0);}
@@ -125,6 +150,14 @@ footer img {
   border-radius: 0.75rem;
   box-shadow: 0 4px 24px rgba(25,135,84,0.08);
   margin-bottom: 0;
+  background: #e8f5e9;
+  min-height: 250px;
+}
+@media (max-width: 767px) {
+  #leafletMap {
+    height: 200px;
+    min-height: 120px;
+  }
 }
 section, [id] {
   scroll-margin-top: 80px;
@@ -198,51 +231,50 @@ img[alt][src*="hero-bg.jpg"], img[alt][src*="google-reviews.png"] {
   opacity: 1;
 }
 
-/* Mobile Optimizations */
+/* Quick Form Improvements */
+.quick-form .form-control,
+.quick-form .form-select {
+  border: 2px solid #e9ecef;
+  padding: 0.8rem 1rem;
+}
+
+.quick-form .form-control:focus,
+.quick-form .form-select:focus {
+  border-color: #198754;
+  box-shadow: 0 0 0 0.2rem rgba(25,135,84,0.25);
+}
+
+/* --- MOBILE HERO OPTIMISATION --- */
 @media (max-width: 768px) {
   .navbar-brand img {
     height: 32px !important;
   }
   
   .hero {
-    min-height: 80vh;
+    min-height: auto;
+    padding: 6rem 0 3rem;
   }
   
-  .card-img-top {
-    height: 180px;
-  }
-
-  /* Spacing and Typography */
-  section {
-    padding: 3rem 0;
+  .hero h1, .hero .display-4, .hero .display-2 {
+    font-size: 2rem !important;
   }
   
-  .container {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-  }
-
-  h1.display-2 {
-    font-size: 2.5rem;
-  }
-
-  h2.display-5 {
-    font-size: 2rem;
-  }
-
-  .card {
-    margin-bottom: 1.5rem;
-  }
-
-  /* Hero Section */
   .hero .lead {
     font-size: 1.1rem !important;
     padding: 0 0.5rem;
   }
 
+  .hero .card {
+    margin: 0 1rem;
+  }
+
   .alert {
     margin: 1rem;
     font-size: 0.9rem !important;
+  }
+
+  .badge {
+    font-size: 0.8rem;
   }
 
   /* Services Cards */
@@ -364,6 +396,15 @@ img[alt][src*="hero-bg.jpg"], img[alt][src*="google-reviews.png"] {
     margin: 0.25rem;
     white-space: normal;
   }
+
+  /* Company Info Styles */
+  .trust-badges {
+    font-size: 0.8rem;
+  }
+  
+  .services-list {
+    font-size: 0.95rem;
+  }
 }
 
 /* Improved spacing for tablets */
@@ -397,6 +438,27 @@ img[alt][src*="hero-bg.jpg"], img[alt][src*="google-reviews.png"] {
   padding: 1rem;
   text-align: center;
   margin-bottom: 1rem;
+}
+
+/* Company Info Styles */
+.trust-badges {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.trust-badges p {
+  margin-bottom: 0.5rem;
+}
+
+.services-list li {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.services-list i {
+  flex-shrink: 0;
+  width: 1.5rem;
 }
 
 @media (max-width: 767px) {

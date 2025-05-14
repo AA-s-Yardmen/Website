@@ -53,7 +53,7 @@ document.querySelectorAll('a[href="#faq"]').forEach(link => {
   });
 });
 
-// Autofill service in booking modal
+// Autofill service in booking modal (static only)
 document.querySelectorAll('.book-btn').forEach(btn => {
   btn.addEventListener('click', function() {
     const serviceType = document.getElementById('serviceType');
@@ -61,51 +61,6 @@ document.querySelectorAll('.book-btn').forEach(btn => {
       serviceType.value = this.getAttribute('data-service');
     }
   });
-});
-
-// Booking form submission (real, via Formspree) with Google Calendar link and Toast
-document.getElementById('bookingForm')?.addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const form = this;
-  const data = {
-    serviceType: form.serviceType.value,
-    customerName: form.customerName.value,
-    customerAddress: form.customerAddress.value,
-    customerDate: form.customerDate.value,
-    customerNotes: form.customerNotes.value
-  };
-  // Replace with your Formspree endpoint:
-  const endpoint = "https://formspree.io/f/yourformid";
-  try {
-    const res = await fetch(endpoint, {
-      method: "POST",
-      headers: { "Accept": "application/json", "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
-    if (res.ok) {
-      const modal = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
-      if (modal) modal.hide();
-      setTimeout(() => {
-        // Show Bootstrap Toast instead of alert
-        const toastEl = document.getElementById('bookingToast');
-        if (toastEl) {
-          const toast = new bootstrap.Toast(toastEl);
-          // Set Google Calendar link
-          const calLink = document.getElementById('addToCalendar');
-          if (calLink) {
-            const date = data.customerDate.replace(/-/g, '');
-            calLink.href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(data.serviceType)}+with+AA+Yardmen&dates=${date}T100000Z/${date}T110000Z&details=${encodeURIComponent('Address: ' + data.customerAddress + '\nNotes: ' + data.customerNotes)}`;
-          }
-          toast.show();
-        }
-      }, 400);
-      form.reset();
-    } else {
-      alert('Sorry, there was a problem submitting your booking. Please try again.');
-    }
-  } catch (err) {
-    alert('Network error. Please try again later.');
-  }
 });
 
 // Animated stats
@@ -127,33 +82,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     requestAnimationFrame(animateStat);
   });
-});
 
-// Before/After slider
-document.querySelectorAll('.before-after-slider').forEach(slider => {
-  const before = slider.querySelector('.before-img');
-  const after = slider.querySelector('.after-img');
-  const range = slider.querySelector('.slider-range');
-  if (before && after && range) {
-    range.addEventListener('input', function() {
-      after.style.clipPath = `inset(0 ${100 - this.value}% 0 0)`;
+  // Add error handling for external resources
+  window.addEventListener('error', function(e) {
+    if (e.target.tagName === 'SCRIPT' && e.target.src.includes('tiktok')) {
+      console.warn('TikTok embed failed to load - hiding container');
+      const tiktokContainer = document.querySelector('.tiktokSwiper');
+      if (tiktokContainer) {
+        tiktokContainer.style.display = 'none';
+      }
+    }
+  }, true);
+
+  // Handle external links
+  document.querySelectorAll('a[href^="http"], a[href^="mailto:"], a[href^="tel:"], a[href^="sms:"]')
+    .forEach(link => {
+      if (!link.hasAttribute('rel')) {
+        link.setAttribute('rel', 'noopener noreferrer');
+      }
+      if (link.hostname !== window.location.hostname && !link.hasAttribute('target')) {
+        link.setAttribute('target', '_blank');
+      }
     });
+
+  // Before/After slider
+  document.querySelectorAll('.before-after-slider').forEach(slider => {
+    const before = slider.querySelector('.before-img');
+    const after = slider.querySelector('.after-img');
+    const range = slider.querySelector('.slider-range');
+    if (before && after && range) {
+      range.addEventListener('input', function() {
+        after.style.clipPath = `inset(0 ${100 - this.value}% 0 0)`;
+      });
+    }
+  });
+
+  // Auto-play testimonial carousel
+  const testimonialCarousel = document.getElementById('testimonialCarousel');
+  if (testimonialCarousel) {
+    new bootstrap.Carousel(testimonialCarousel, { interval: 5000, ride: 'carousel' });
   }
-});
 
-// Auto-play testimonial carousel
-const testimonialCarousel = document.getElementById('testimonialCarousel');
-if (testimonialCarousel) {
-  const carousel = new bootstrap.Carousel(testimonialCarousel, { interval: 5000, ride: 'carousel' });
-}
+  // Initialize AOS (Animate On Scroll) if present
+  if (window.AOS) {
+    AOS.init();
+  }
 
-// Initialize AOS (Animate On Scroll) if present
-if (window.AOS) {
-  AOS.init();
-}
-
-// Weather Widget (Open-Meteo API, no key needed)
-document.addEventListener('DOMContentLoaded', () => {
+  // Weather Widget (Open-Meteo API, no key needed)
   const weatherContent = document.getElementById('weatherContent');
   if (weatherContent) {
     fetch('https://api.open-meteo.com/v1/forecast?latitude=55.8674&longitude=-4.1222&current_weather=true')
@@ -173,65 +148,76 @@ document.addEventListener('DOMContentLoaded', () => {
         weatherContent.innerHTML = `<div class="text-danger">Weather unavailable.</div>`;
       });
   }
-});
 
-// Price Calculator
-document.getElementById('calculatorForm')?.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const service = document.getElementById('calcService').value;
-  const size = document.getElementById('calcSize').value;
-  let price = 0;
-  if (service === 'garden') price = { small: 25, medium: 40, large: 60 }[size];
-  if (service === 'window') price = { small: 20, medium: 30, large: 45 }[size];
-  if (service === 'pressure') price = { small: 30, medium: 50, large: 75 }[size];
-  document.getElementById('priceResult').textContent = `Estimated Price: £${price}`;
-});
+  // Price Calculator
+  document.getElementById('calculatorForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const service = document.getElementById('calcService').value;
+    const size = document.getElementById('calcSize').value;
+    let price = 0;
+    if (service === 'garden') price = { small: 25, medium: 40, large: 60 }[size];
+    if (service === 'window') price = { small: 20, medium: 30, large: 45 }[size];
+    if (service === 'pressure') price = { small: 30, medium: 50, large: 75 }[size];
+    document.getElementById('priceResult').textContent = `Estimated Price: £${price}`;
+  });
 
-// Initialize map only once and when container is ready
-document.addEventListener('DOMContentLoaded', () => {
-  const mapContainer = document.getElementById('leafletMap');
-  if (mapContainer && !mapContainer._leaflet_id && window.L) {
+  // Initialize map only once and when container is ready
+  const initMap = () => {
+    const mapContainer = document.getElementById('leafletMap');
+    if (!mapContainer || !window.L) {
+      // Show fallback if map can't load
+      document.getElementById('mapFallback')?.style.setProperty('display', 'block');
+      if (mapContainer) mapContainer.style.display = 'none';
+      return;
+    }
+    if (mapContainer._leaflet_id) return; // Prevent double init
+
     const glasgowEast = [55.86739054658849, -4.122231786419321];
     const map = L.map('leafletMap', {
       scrollWheelZoom: false,
       zoomControl: true,
       dragging: !L.Browser.mobile
     }).setView(glasgowEast, 13);
-    
+
+    // Use classic OpenStreetMap tile layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    // Service area circle
+    // Service area circle (matches your SVG style)
     L.circle(glasgowEast, {
       color: '#198754',
       fillColor: '#198754',
       fillOpacity: 0.15,
-      radius: 2000
+      radius: 2000,
+      weight: 3
     }).addTo(map);
 
     // Add marker with popup
     L.marker(glasgowEast)
       .bindPopup('We serve this area!<br>Get in touch today.')
       .addTo(map);
+  };
+
+  const mapContainer = document.getElementById('leafletMap');
+  if (mapContainer && !mapContainer._leaflet_id) {
+    setTimeout(initMap, 200); // Delay to ensure container is visible
+  }
+
+  // Lazy Loading Images
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.classList.add('loaded');
+          observer.unobserve(img);
+        }
+      });
+    });
+    lazyImages.forEach(img => imageObserver.observe(img));
   }
 });
 
-// Lazy Loading Images
-document.addEventListener('DOMContentLoaded', function() {
-    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-    
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.classList.add('loaded');
-                    observer.unobserve(img);
-                }
-            });
-        });
-
-        lazyImages.forEach(img => imageObserver.observe(img));
-    }
-});
+// Remove any server-side or import/export code. All code above is static-compatible.

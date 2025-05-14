@@ -22,6 +22,15 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <!-- Add permissions policy -->
+  <meta http-equiv="Permissions-Policy" content="accelerometer=(), gyroscope=(), magnetometer=()">
+  <!-- Add fallback for images -->
+  <style>
+    img[src$='.jpg'], img[src$='.png'] {
+      background: #f0f0f0;
+      min-height: 100px;
+    }
+  </style>
 </head>
 <body style="font-family:'Rubik',sans-serif;">
   <!-- Loading Spinner Overlay -->
@@ -62,12 +71,12 @@
       <div class="mt-3">
         <div class="alert alert-warning d-inline-block mt-3" style="font-size:1.1rem;">
           <i class="bi bi-chat-dots me-2"></i>
-          <strong>Booking Policy:</strong> Please text <a href="sms:07516487733" class="fw-bold text-success" style="text-decoration:underline;">07516 487733</a> to book your slot with AA's Yardmen.
+          <strong>Booking Policy:</strong> Please text <a href="sms:07516487733?body=Hey%2C%20I%20would%20like%20to%20book%20in%20for..." class="fw-bold text-success" style="text-decoration:underline;">07516 487733</a> to book your slot with AA's Yardmen.
         </div>
       </div>
       <div class="mt-5">
         <a href="#services" class="scroll-down-arrow d-inline-block" aria-label="Scroll to Services">
-          <span class="fs-1">&#8595;</span>
+          <span class="fs-2" style="color:#fff;opacity:0.7;"><i class="bi bi-chevron-double-down"></i></span>
         </a>
       </div>
     </div>
@@ -85,7 +94,8 @@
             <div class="card-body p-4">
               <img src="assets/images/services/garden-maintenance.jpg" 
                    class="card-img-top" 
-                   alt="Garden Maintenance Glasgow" 
+                   alt="Garden Maintenance Service"
+                   onerror="this.onerror=null; this.src='https://placehold.co/800x600?text=Garden+Maintenance';"
                    loading="lazy"
                    width="800"
                    height="600">
@@ -158,28 +168,39 @@
   </div>
 
   <!-- About/Founder Section -->
-  <section class="py-5 bg-light" id="about" data-aos="fade-up" style="scroll-margin-top:80px;">
+  <section class="py-5 bg-light" id="about" data-aos="fade-up">
     <div class="container">
       <div class="row align-items-center g-4">
         <div class="col-md-5 text-center">
           <img src="assets/aa-logo.jpg" alt="AA's Yardmen Logo" class="rounded shadow mb-3" style="width:160px;height:160px;object-fit:cover;">
+          <div class="trust-badges mt-3">
+            <p class="mb-2"><small>Registered Company No: SC755769</small></p>
+            <p class="mb-0"><small>Est. January 2023</small></p>
+          </div>
         </div>
         <div class="col-md-7">
-          <h2 class="fw-bold mb-3">Meet Alan, Founder of AA's Yardmen</h2>
-          <p class="lead mb-2">
-            Greetings! My name is Alan, the founder and owner of AA's Yardmen, a thriving external cleaning and lawn maintenance company. With a successful first year under our belts, we've focused on providing exceptional outdoor services for both residential and commercial properties.
+          <h2 class="fw-bold mb-3">Professional Garden & External Cleaning Services</h2>
+          <p class="lead mb-3">
+            Based in Glasgow's East End, AA's Yardmen provides comprehensive outdoor maintenance 
+            and cleaning services using eco-friendly products and advanced techniques.
           </p>
-          <p>
-            I started AA's Yardmen with a passion for transforming ordinary yards into stunning outdoor living spaces. After seeing the joy on our clients' faces, I knew this business could make a real difference. Now, as we enter our second year, we're expanding our team and investing in even better equipment to serve you.
-          </p>
-          <ul class="list-unstyled mb-2">
-            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Meticulous lawn maintenance & external cleaning</li>
-            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Residential & commercial services</li>
-            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Committed to customer satisfaction & a greener environment</li>
-            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Building lasting relationships & partnerships</li>
-          </ul>
-          <div class="alert alert-success mt-3 mb-0">
-            <strong>Why support AA's Yardmen?</strong> Because we care about your space, your satisfaction, and our community.
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <h5 class="fw-bold"><i class="bi bi-flower1 text-success me-2"></i>Garden Services</h5>
+              <ul class="list-unstyled">
+                <li><i class="bi bi-check2 text-success me-2"></i>Lawn Mowing & Fertilisation</li>
+                <li><i class="bi bi-check2 text-success me-2"></i>Weed Control</li>
+                <li><i class="bi bi-check2 text-success me-2"></i>Landscaping</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h5 class="fw-bold"><i class="bi bi-water text-success me-2"></i>Cleaning Services</h5>
+              <ul class="list-unstyled">
+                <li><i class="bi bi-check2 text-success me-2"></i>Jet Washing</li>
+                <li><i class="bi bi-check2 text-success me-2"></i>Driveway Cleaning</li>
+                <li><i class="bi bi-check2 text-success me-2"></i>Commercial Cleaning</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -279,6 +300,12 @@
     <div class="container">
       <h2 class="mb-3 fw-bold"><i class="bi bi-geo-alt-fill text-success me-2"></i>Our Service Area</h2>
       <div id="leafletMap"></div>
+      <div id="mapFallback" class="text-center mt-3" style="display:none;">
+        <div class="bg-light p-4 rounded">
+          <p class="mb-0">We serve Glasgow's East End including Easterhouse, Shettleston, and surrounding areas.</p>
+          <a href="https://maps.google.com/?q=Easterhouse,Glasgow" class="btn btn-success mt-3" target="_blank" rel="noopener">View on Google Maps</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -389,7 +416,10 @@
         </button>
       </div>
       <div class="mt-3 text-center">
-        <img src="assets/images/google-reviews.png" alt="Google Reviews" style="height:32px;">
+        <img src="assets/images/google-reviews.png" 
+             alt="Google Reviews"
+             onerror="this.onerror=null; this.src='https://placehold.co/200x50?text=Google+Reviews';"
+             style="height:32px;">
         <span class="ms-2 text-success fw-bold">4.9/5 on Google</span>
       </div>
     </div>
@@ -475,10 +505,10 @@
             <div class="card-body">
               <p class="mb-3 fs-5">
                 <i class="bi bi-info-circle text-success me-2"></i>
-                <strong>Booking Policy:</strong> Please text <a href="sms:07516487733" class="fw-bold text-success" style="text-decoration:underline;">07516 487733</a> to book your slot with AA's Yardmen.
+                <strong>Booking Policy:</strong> Please text <a href="sms:07516487733?body=Hey%2C%20I%20would%20like%20to%20book%20in%20for..." class="fw-bold text-success" style="text-decoration:underline;">07516 487733</a> to book your slot with AA's Yardmen.
               </p>
               <div class="d-grid gap-2 mb-3">
-                <a href="sms:07516487733" class="btn btn-success btn-lg fw-bold" aria-label="Text to Book">Text to Book: 07516 487733</a>
+                <a href="sms:07516487733?body=Hey%2C%20I%20would%20like%20to%20book%20in%20for..." class="btn btn-success btn-lg fw-bold" aria-label="Text to Book">Text to Book: 07516 487733</a>
                 <a href="mailto:support@aayardmen.co.uk" class="btn btn-outline-success btn-lg fw-bold" aria-label="Email AA's Yardmen">Email Us</a>
                 <a href="https://www.tiktok.com/@aas.yardmen" class="btn btn-outline-dark btn-lg fw-bold" target="_blank" rel="noopener" aria-label="View TikTok">TikTok Videos</a>
               </div>
@@ -503,7 +533,7 @@
         <span class="text-white">|</span>
         <a href="mailto:support@aayardmen.co.uk" class="text-white ms-2">Email</a>
         <span class="text-white">|</span>
-        <a href="sms:07516487733" class="text-white ms-2 fw-bold">Text to Book: 07516 487733</a>
+        <a href="sms:07516487733?body=Hey%2C%20I%20would%20like%20to%20book%20in%20for..." class="text-white ms-2 fw-bold">Text to Book: 07516 487733</a>
       </div>
     </div>
   </footer>
