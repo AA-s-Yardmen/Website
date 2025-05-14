@@ -188,6 +188,217 @@ img[alt][src*="hero-bg.jpg"], img[alt][src*="google-reviews.png"] {
   color: #888;
 }
 
+/* Performance Optimizations */
+.lazy-image {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .navbar-brand img {
+    height: 32px !important;
+  }
+  
+  .hero {
+    min-height: 80vh;
+  }
+  
+  .card-img-top {
+    height: 180px;
+  }
+
+  /* Spacing and Typography */
+  section {
+    padding: 3rem 0;
+  }
+  
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  h1.display-2 {
+    font-size: 2.5rem;
+  }
+
+  h2.display-5 {
+    font-size: 2rem;
+  }
+
+  .card {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Hero Section */
+  .hero .lead {
+    font-size: 1.1rem !important;
+    padding: 0 0.5rem;
+  }
+
+  .alert {
+    margin: 1rem;
+    font-size: 0.9rem !important;
+  }
+
+  /* Services Cards */
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .card-body h3 {
+    font-size: 1.2rem;
+  }
+
+  .card-body p {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Stats Section */
+  .stat-number {
+    font-size: 2rem !important;
+  }
+
+  .fw-medium {
+    font-size: 0.9rem;
+  }
+
+  /* Testimonials */
+  .blockquote p {
+    font-size: 1rem !important;
+    padding: 0 1rem;
+  }
+
+  /* Weather Widget */
+  .weather-widget {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .weather-widget .temp {
+    font-size: 2rem;
+  }
+
+  /* Price Calculator */
+  #priceCalculator {
+    padding: 1.5rem 1rem;
+  }
+
+  /* FAQ Section */
+  .accordion-button {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .accordion-body {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Contact Section */
+  .card .fs-5 {
+    font-size: 1rem !important;
+  }
+
+  /* Buttons */
+  .btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 0.9rem;
+  }
+
+  /* Floating WhatsApp Button */
+  .whatsapp-float {
+    bottom: 70px !important;
+    right: 15px !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  /* CTA Bar */
+  .fixed-bottom.bg-success {
+    padding: 0.75rem !important;
+  }
+
+  /* Modals */
+  .modal-body {
+    padding: 1rem;
+  }
+
+  .modal-header {
+    padding: 1rem;
+  }
+
+  /* Map */
+  #leafletMap {
+    height: 250px;
+    margin: 1rem 0;
+  }
+
+  /* Improved Touch Targets */
+  .nav-link,
+  .btn,
+  select,
+  input,
+  .accordion-button {
+    min-height: 44px;
+  }
+
+  /* Add spacing between sections */
+  section + section {
+    margin-top: 1rem;
+  }
+
+  /* Improve Badge Readability */
+  .badge {
+    font-size: 0.8rem !important;
+    margin: 0.25rem;
+    white-space: normal;
+  }
+}
+
+/* Improved spacing for tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  section {
+    padding: 4rem 0;
+  }
+}
+
+/* Improved Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+/* Trust Badges */
+.trust-badge {
+  background: rgba(25,135,84,0.1);
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 767px) {
   .hero h1 { font-size: 2rem; }
   .card-img-top, #gallery img {

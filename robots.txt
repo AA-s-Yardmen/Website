@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.aayardmen.co.uk/sitemap.xml
+
+Disallow: /assets/private/
+Disallow: /temp/

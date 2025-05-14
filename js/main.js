@@ -187,19 +187,51 @@ document.getElementById('calculatorForm')?.addEventListener('submit', function(e
   document.getElementById('priceResult').textContent = `Estimated Price: £${price}`;
 });
 
-// Defensive: Only initialize map if container exists and not already initialized
+// Initialize map only once and when container is ready
 document.addEventListener('DOMContentLoaded', () => {
   const mapContainer = document.getElementById('leafletMap');
-  if (mapContainer && window.L && !mapContainer._leaflet_id) {
-    var map = L.map('leafletMap', { scrollWheelZoom: false, zoomControl: true }).setView([55.86739054658849, -4.122231786419321], 13);
+  if (mapContainer && !mapContainer._leaflet_id && window.L) {
+    const glasgowEast = [55.86739054658849, -4.122231786419321];
+    const map = L.map('leafletMap', {
+      scrollWheelZoom: false,
+      zoomControl: true,
+      dragging: !L.Browser.mobile
+    }).setView(glasgowEast, 13);
+    
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
-    L.circle([55.86739054658849, -4.122231786419321], {
+
+    // Service area circle
+    L.circle(glasgowEast, {
       color: '#198754',
       fillColor: '#198754',
       fillOpacity: 0.15,
       radius: 2000
     }).addTo(map);
+
+    // Add marker with popup
+    L.marker(glasgowEast)
+      .bindPopup('We serve this area!<br>Get in touch today.')
+      .addTo(map);
   }
+});
+
+// Lazy Loading Images
+document.addEventListener('DOMContentLoaded', function() {
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        lazyImages.forEach(img => imageObserver.observe(img));
+    }
 });
