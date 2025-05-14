@@ -1,107 +1,52 @@
 # AA Yardmen Website
-Version 1.0.0
 
-## Project Overview
-Website for AA Yardmen, a professional garden and window cleaning service in Glasgow's East End. The site features service booking, real-time weather updates, interactive service area mapping, and social media integration.
+Live Demo: [https://aayardmen.github.io/Website/](https://aayardmen.github.io/Website/)
+
+## Overview
+
+Mobile-first static website for AA's Yardmen, a professional garden and window cleaning service in Glasgow's East End.  
+Features online booking, real-time weather, interactive map, TikTok/social media, and price calculator.
 
 ## Features
-- Online service booking system
-- Real-time weather integration
-- Interactive service area map
-- Social media feeds integration
-- WhatsApp business integration
-- Responsive design for mobile/tablet/desktop
-- Service price calculator
 
-## Technical Stack
-- HTML5, CSS3, JavaScript
-- Bootstrap 5.3
-- Third-party integrations:
-  - Leaflet for maps
-  - WhatsApp Widget
-  - TikTok Feed
-  - Weather Widget
-- Node.js v16+ for development
-- Git for version control
-- Hosting: Netlify/Vercel
-- SSL certification via Let's Encrypt
+- Mobile-first, responsive Bootstrap 5 design
+- Service booking modal and SMS/WhatsApp integration
+- Real-time weather widget (Open-Meteo API)
+- Interactive Leaflet map with fallback
+- TikTok project highlights (sandboxed, with fallback)
+- Price calculator
+- SEO and accessibility best practices
+- Fast loading with lazy images and fallbacks
 
-## Browser Support
-- Chrome (latest 2 versions)
-- Firefox (latest 2 versions)
-- Safari (latest 2 versions)
-- Edge (latest version)
-- Mobile browsers (iOS 13+, Android 9+)
+## Setup
 
-## Project Structure
-```
-AA-Yardmen/
-├── assets/          # Images and static files
-├── css/            # Stylesheets
-├── js/             # JavaScript files
-│   ├── config.js   # Central configuration
-│   ├── main.js     # Core functionality
-│   └── features/   # Feature-specific modules
-└── index.html      # Main entry point
-```
+1. Clone/download this repo.
+2. Place all files in your `Website/` folder.
+3. Add your images to `assets/images/` or use the provided placeholders.
+4. Deploy to GitHub Pages (set root to `/Website/`).
 
-## Development Setup
-1. Clone repository
-```bash
-git clone https://github.com/username/AA-Yardmen.git
-cd AA-Yardmen
-```
-2. Update API keys in `js/config.js`
-3. Install dependencies
-```bash
-npm install
-```
-4. Run local server
-```bash
-npm run dev
-```
+## To-Do
 
-## Testing
-- Run unit tests: `npm test`
-- Browser testing: `npm run test:e2e`
-- Lighthouse scores should maintain:
-  - Performance: >90
-  - Accessibility: >95
-  - SEO: >90
+- [ ] Replace placeholder images with real photos in `assets/images/`
+- [ ] Add more TikTok project videos
+- [ ] Update Formspree/contact form endpoint
+- [ ] Add more FAQs and testimonials
+- [ ] Monitor TikTok embed reliability
+- [ ] Improve Lighthouse scores (Performance/SEO/Accessibility)
+- [ ] Add Google Analytics or Plausible
+- [ ] Review and update service prices quarterly
 
-## Deployment
-1. Build the project
-```bash
-npm run build
-```
-2. Deploy to hosting service
-3. Verify all API integrations are working
+## Troubleshooting
 
-## Maintenance Notes
-- Update service prices in `config.js` (quarterly review)
-- Service area changes in map configuration (`js/features/map-config.js`)
-- Social media links in footer (`index.html`)
-- Weather widget API key needs renewal annually (expires: [DATE])
-- Regular checks:
-  - WhatsApp widget connectivity
-  - TikTok feed updates
-  - Map markers accuracy
-  - SSL certificate renewal
-- Additional checks:
-  - Monthly Google Analytics review
-  - Quarterly SEO optimization
-  - Content updates (pricing, services)
-  - Image optimization
-  - API usage monitoring
+- **Images not loading:** Make sure filenames match and are in `assets/images/`. Placeholders are used if missing.
+- **TikTok videos not showing:** TikTok may block embeds or be slow. Fallback links are provided.
+- **Permissions policy warnings:** These are silenced via `<meta http-equiv="Permissions-Policy">`.
+- **Weather widget not loading:** Check Open-Meteo API status.
+- **Map not loading:** Fallback message and Google Maps link are shown if Leaflet fails.
 
-## Documentation
-- API Documentation: `/docs/api.md`
-- Design System: `/docs/design-system.md`
-- Content Guidelines: `/docs/content-guidelines.md`
+## Credits
 
-## Contact
-For questions about the codebase:
-- Original Developer: Jason Smith
-- Technical Support: support@aayardmen.co.uk
-- Company Contact: 07516 487733
-- Working Hours: Mon-Fri, 9:00-17:00 GMT
+- Bootstrap, Leaflet, Swiper, AOS, TikTok, Open-Meteo, Sienna Widget
+- Design & code: Jason Smith / AA's Yardmen
+
+---

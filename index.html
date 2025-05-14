@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="theme-color" content="#198754">
   <title>AA's Yardmen - Garden & Window Cleaning Glasgow</title>
   <meta name="description" content="Professional garden and window cleaning in Glasgow's East End. Book online for fast, friendly, and reliable service.">
   <meta name="keywords" content="garden maintenance glasgow, window cleaning east end, pressure washing, lawn care, hedge trimming">
@@ -22,23 +24,18 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-  <!-- Add permissions policy -->
-  <meta http-equiv="Permissions-Policy" content="accelerometer=(), gyroscope=(), magnetometer=()">
-  <!-- Add fallback for images -->
+  <link rel="preload" as="image" href="https://placehold.co/1920x1080?text=Garden+Services" imagesrcset="https://placehold.co/1920x1080?text=Garden+Services" />
+  <meta http-equiv="Permissions-Policy" content="accelerometer=(), gyroscope=(), magnetometer=(), camera=(), geolocation=(), microphone=(), payment=(), usb=(), vr=(), fullscreen=(), autoplay=()">
   <style>
-    img[src$='.jpg'], img[src$='.png'] {
-      background: #f0f0f0;
-      min-height: 100px;
-    }
+    img[src$='.jpg'], img[src$='.png'] { background: #f0f0f0; min-height: 100px; }
+    .tiktok-fallback { background: #f8fafb; border: 1px solid #eee; border-radius: 8px; padding: 1.5rem; text-align: center; color: #888; }
   </style>
 </head>
 <body style="font-family:'Rubik',sans-serif;">
-  <!-- Loading Spinner Overlay -->
   <div id="loadingOverlay" style="position:fixed;inset:0;z-index:2000;background:#fff;display:flex;align-items:center;justify-content:center;">
     <div class="spinner-border text-success" style="width:4rem;height:4rem;" role="status" aria-label="Loading"></div>
   </div>
 
-  <!-- Sticky Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white bg-opacity-75 fixed-top shadow-sm" style="backdrop-filter: blur(8px);">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
@@ -60,8 +57,7 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero d-flex align-items-center text-white text-center" id="home" style="background-image:url('assets/images/hero-bg.jpg');background-size:cover;min-height:100vh;position:relative;">
+  <section class="hero d-flex align-items-center text-white text-center" id="home" style="background-image:url('https://placehold.co/1920x1080?text=Garden+Services');background-size:cover;min-height:100vh;position:relative;">
     <div class="container position-relative z-2 py-5">
       <h1 class="display-2 fw-bold mb-3 text-shadow">Transform Your Garden & Windows</h1>
       <p class="lead mb-4 fs-4 text-shadow">Book trusted, local professionals in Glasgow's East End. Fast, friendly, and affordable.</p>
@@ -81,22 +77,23 @@
       </div>
     </div>
     <div class="hero-overlay"></div>
+    <noscript>
+      <img src="https://placehold.co/1920x1080?text=Garden+Services" alt="Garden Maintenance Background" style="width:100%;height:auto;">
+    </noscript>
   </section>
 
-  <!-- Services Section -->
   <section id="services" class="py-5">
     <div class="container">
       <h2 class="display-5 fw-bold text-center mb-4">Our Professional Services</h2>
       <div class="row g-4">
         <div class="col-12 col-md-4">
-          <!-- Existing garden service card but with improved spacing -->
           <div class="card h-100 border-0 shadow-sm">
             <div class="card-body p-4">
-              <img src="assets/images/services/garden-maintenance.jpg" 
-                   class="card-img-top" 
+              <img src="https://placehold.co/800x600?text=Garden+Maintenance"
+                   class="card-img-top"
                    alt="Garden Maintenance Service"
-                   onerror="this.onerror=null; this.src='https://placehold.co/800x600?text=Garden+Maintenance';"
                    loading="lazy"
+                   decoding="async"
                    width="800"
                    height="600">
               <h3 class="h5 fw-bold">
@@ -108,26 +105,77 @@
                 <li><i class="bi bi-check2 text-success me-2"></i>Regular scheduling available</li>
                 <li><i class="bi bi-check2 text-success me-2"></i>Green waste removed</li>
               </ul>
-              <button class="btn btn-outline-success w-100" 
-                      data-bs-toggle="modal" 
-                      data-bs-target="#bookingModal" 
-                      data-service="garden">Book Garden Service</button>
+              <button
+                class="btn btn-outline-success w-100"
+                onclick="window.open('https://wa.me/447516487733?text=Hey%2C%20I%20would%20like%20a%20quote%20on%20Garden%20services','_blank')"
+                type="button"
+              >
+                Book Garden Service
+              </button>
             </div>
           </div>
         </div>
-        <!-- Similar cards for Window Cleaning and Pressure Washing -->
+        <div class="col-12 col-md-4">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <img src="https://placehold.co/800x600?text=Window+Cleaning"
+                   class="card-img-top"
+                   alt="Window Cleaning Service"
+                   loading="lazy"
+                   decoding="async"
+                   width="800"
+                   height="600">
+              <h3 class="h5 fw-bold">
+                <i class="bi bi-windows text-success me-2"></i>Window Cleaning
+              </h3>
+              <p>Streak-free window cleaning for homes and businesses. Inside and out, frames included.</p>
+              <ul class="list-unstyled mb-3">
+                <li><i class="bi bi-check2 text-success me-2"></i>From £20/visit</li>
+                <li><i class="bi bi-check2 text-success me-2"></i>Pure water system</li>
+                <li><i class="bi bi-check2 text-success me-2"></i>All frames & sills cleaned</li>
+              </ul>
+              <button
+                class="btn btn-outline-success w-100"
+                onclick="window.open('https://wa.me/447516487733?text=Hey%2C%20I%20would%20like%20a%20quote%20on%20Window%20Cleaning','_blank')"
+                type="button"
+              >
+                Book Window Cleaning
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <img src="https://placehold.co/800x600?text=Pressure+Washing"
+                   class="card-img-top"
+                   alt="Pressure Washing Service"
+                   loading="lazy"
+                   decoding="async"
+                   width="800"
+                   height="600">
+              <h3 class="h5 fw-bold">
+                <i class="bi bi-droplet-half text-success me-2"></i>Pressure Washing
+              </h3>
+              <p>Driveways, patios, and decking restored to their best. Eco-friendly and powerful.</p>
+              <ul class="list-unstyled mb-3">
+                <li><i class="bi bi-check2 text-success me-2"></i>From £30/visit</li>
+                <li><i class="bi bi-check2 text-success me-2"></i>Eco-friendly detergents</li>
+                <li><i class="bi bi-check2 text-success me-2"></i>Slippery moss removed</li>
+              </ul>
+              <button
+                class="btn btn-outline-success w-100"
+                onclick="window.open('https://wa.me/447516487733?text=Hey%2C%20I%20would%20like%20a%20quote%20on%20Pressure%20Washing','_blank')"
+                type="button"
+              >
+                Book Pressure Washing
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- WhatsApp Float Button -->
-  <a href="https://wa.me/447516487733?text=Hello%20AA's%20Yardmen,%20I'd%20like%20a%20quote%20for%20" 
-     class="btn btn-success btn-lg rounded-circle position-fixed d-flex align-items-center justify-content-center"
-     style="bottom:90px;right:20px;width:60px;height:60px;z-index:1000;"
-     target="_blank"
-     rel="noopener">
-     <i class="bi bi-whatsapp fs-4"></i>
-  </a>
 
   <!-- Quick Quote Form Modal -->
   <div class="modal fade" id="bookingModal" tabindex="-1">
@@ -166,124 +214,6 @@
       </div>
     </div>
   </div>
-
-  <!-- About/Founder Section -->
-  <section class="py-5 bg-light" id="about" data-aos="fade-up">
-    <div class="container">
-      <div class="row align-items-center g-4">
-        <div class="col-md-5 text-center">
-          <img src="assets/aa-logo.jpg" alt="AA's Yardmen Logo" class="rounded shadow mb-3" style="width:160px;height:160px;object-fit:cover;">
-          <div class="trust-badges mt-3">
-            <p class="mb-2"><small>Registered Company No: SC755769</small></p>
-            <p class="mb-0"><small>Est. January 2023</small></p>
-          </div>
-        </div>
-        <div class="col-md-7">
-          <h2 class="fw-bold mb-3">Professional Garden & External Cleaning Services</h2>
-          <p class="lead mb-3">
-            Based in Glasgow's East End, AA's Yardmen provides comprehensive outdoor maintenance 
-            and cleaning services using eco-friendly products and advanced techniques.
-          </p>
-          <div class="row g-3 mb-4">
-            <div class="col-md-6">
-              <h5 class="fw-bold"><i class="bi bi-flower1 text-success me-2"></i>Garden Services</h5>
-              <ul class="list-unstyled">
-                <li><i class="bi bi-check2 text-success me-2"></i>Lawn Mowing & Fertilisation</li>
-                <li><i class="bi bi-check2 text-success me-2"></i>Weed Control</li>
-                <li><i class="bi bi-check2 text-success me-2"></i>Landscaping</li>
-              </ul>
-            </div>
-            <div class="col-md-6">
-              <h5 class="fw-bold"><i class="bi bi-water text-success me-2"></i>Cleaning Services</h5>
-              <ul class="list-unstyled">
-                <li><i class="bi bi-check2 text-success me-2"></i>Jet Washing</li>
-                <li><i class="bi bi-check2 text-success me-2"></i>Driveway Cleaning</li>
-                <li><i class="bi bi-check2 text-success me-2"></i>Commercial Cleaning</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats Section -->
-  <section class="bg-success bg-opacity-10 py-4" id="stats" style="scroll-margin-top:80px;">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-6 col-md-3 mb-3">
-          <div class="display-5 fw-bold text-success stat-number" data-count="500">0</div>
-          <div class="fw-medium">Gardens Transformed</div>
-        </div>
-        <div class="col-6 col-md-3 mb-3">
-          <div class="display-5 fw-bold text-success stat-number" data-count="1200">0</div>
-          <div class="fw-medium">Windows Cleaned</div>
-        </div>
-        <div class="col-6 col-md-3 mb-3">
-          <div class="display-5 fw-bold text-success stat-number" data-count="4.9">0</div>
-          <div class="fw-medium">Star Rating</div>
-        </div>
-        <div class="col-6 col-md-3 mb-3">
-          <div class="display-5 fw-bold text-success stat-number" data-count="100%">0</div>
-          <div class="fw-medium">Satisfaction</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us Section -->
-  <section class="py-5 bg-light" id="why-choose-us" data-aos="fade-up" style="scroll-margin-top:80px;">
-    <div class="container">
-      <h2 class="fw-bold text-center mb-4"><i class="bi bi-stars text-success me-2"></i>Why Choose AA's Yardmen?</h2>
-      <div class="row g-4 text-center">
-        <div class="col-md-4">
-          <div class="p-4 bg-white rounded shadow-sm h-100">
-            <i class="bi bi-emoji-smile display-4 text-success mb-3"></i>
-            <h5 class="fw-bold">Friendly Local Team</h5>
-            <p>We’re Glasgow East End locals, known for our reliability and friendly service.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="p-4 bg-white rounded shadow-sm h-100">
-            <i class="bi bi-shield-check display-4 text-success mb-3"></i>
-            <h5 class="fw-bold">Fully Insured & Trusted</h5>
-            <p>All work is insured and satisfaction is guaranteed on every job.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="p-4 bg-white rounded shadow-sm h-100">
-            <i class="bi bi-lightning-charge display-4 text-success mb-3"></i>
-            <h5 class="fw-bold">Fast Online Booking</h5>
-            <p>Book your service in seconds and get instant confirmation by email.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works Timeline -->
-  <section class="py-5" id="how-it-works" data-aos="fade-up" style="scroll-margin-top:80px;">
-    <div class="container">
-      <h2 class="fw-bold text-center mb-4"><i class="bi bi-list-ol text-success me-2"></i>How It Works</h2>
-      <div class="row g-4 justify-content-center">
-        <div class="col-md-3 text-center">
-          <div class="mb-2"><i class="bi bi-calendar2-check display-5 text-success"></i></div>
-          <h6 class="fw-bold">1. Book Online</h6>
-          <p class="small">Choose your service and date in seconds.</p>
-        </div>
-        <div class="col-md-3 text-center">
-          <div class="mb-2"><i class="bi bi-person-check display-5 text-success"></i></div>
-          <h6 class="fw-bold">2. We Arrive</h6>
-          <p class="small">Our team comes prepared and on time.</p>
-        </div>
-        <div class="col-md-3 text-center">
-          <div class="mb-2"><i class="bi bi-emoji-heart-eyes display-5 text-success"></i></div>
-          <h6 class="fw-bold">3. Enjoy Results</h6>
-          <p class="small">Relax and enjoy your tidy garden or sparkling windows!</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Weather Widget Section -->
   <section class="weather-widget" id="weatherWidget" data-aos="fade-up" style="scroll-margin-top:80px;">
@@ -383,7 +313,14 @@
     </div>
   </section>
 
-  <!-- Customer Reviews Carousel -->
+  <a href="https://wa.me/447516487733?text=Hello%20AA's%20Yardmen,%20I'd%20like%20a%20quote%20for%20" 
+     class="btn btn-success btn-lg rounded-circle position-fixed d-flex align-items-center justify-content-center"
+     style="bottom:90px;right:20px;width:60px;height:60px;z-index:1000;"
+     target="_blank"
+     rel="noopener">
+     <i class="bi bi-whatsapp fs-4"></i>
+  </a>
+
   <section class="py-5 bg-light" id="reviews" data-aos="fade-up" style="scroll-margin-top:80px;">
     <div class="container">
       <h2 class="fw-bold text-center mb-4"><i class="bi bi-chat-quote text-success me-2"></i>Customer Reviews</h2>
@@ -416,28 +353,16 @@
         </button>
       </div>
       <div class="mt-3 text-center">
-        <img src="assets/images/google-reviews.png" 
+        <img src="https://placehold.co/200x50?text=Google+Reviews"
              alt="Google Reviews"
-             onerror="this.onerror=null; this.src='https://placehold.co/200x50?text=Google+Reviews';"
+             loading="lazy"
+             decoding="async"
              style="height:32px;">
         <span class="ms-2 text-success fw-bold">4.9/5 on Google</span>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section id="testimonials" style="scroll-margin-top:80px;">
-    <!-- Add your testimonials content here if needed -->
-  </section>
-
-  <!-- Sustainability & Guarantee Badges -->
-  <div class="container py-4 text-center" data-aos="fade-up">
-    <span class="badge bg-success fs-6 px-3 py-2 me-2 mb-2"><i class="bi bi-leaf me-1"></i>Eco-Friendly Practices</span>
-    <span class="badge bg-success fs-6 px-3 py-2 me-2 mb-2"><i class="bi bi-shield-check me-1"></i>100% Satisfaction Guarantee</span>
-    <span class="badge bg-success fs-6 px-3 py-2 mb-2"><i class="bi bi-award me-1"></i>Fully Insured & Accredited</span>
-  </div>
-
-  <!-- Project Highlights (TikTok Videos Carousel) -->
   <section class="py-5 bg-light" id="projects" data-aos="fade-up" style="scroll-margin-top:80px;">
     <div class="container">
       <h2 class="mb-4 text-center fw-bold"><i class="bi bi-tiktok text-success me-2"></i>Project Highlights</h2>
@@ -445,21 +370,40 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="rounded shadow overflow-hidden bg-white p-2">
-              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aas.yardmen/video/7485863413206273302" data-video-id="7485863413206273302" style="max-width: 100%;min-width: 325px;">
-                <section> </section>
-              </blockquote>
+              <div class="tiktok-embed-container" style="min-width:325px;max-width:100%;">
+                <iframe src="https://www.tiktok.com/embed/v2/7485863413206273302"
+                        title="TikTok Video"
+                        loading="lazy"
+                        allow="autoplay; encrypted-media"
+                        sandbox="allow-scripts allow-same-origin"
+                        style="width:100%;height:480px;border:none;border-radius:8px;overflow:hidden;"
+                        referrerpolicy="no-referrer"
+                        aria-label="TikTok Video"></iframe>
+                <noscript>
+                  <div class="tiktok-fallback">TikTok video unavailable. <a href="https://www.tiktok.com/@aas.yardmen/video/7485863413206273302" target="_blank" rel="noopener">Watch on TikTok</a></div>
+                </noscript>
+              </div>
               <div class="mt-2 text-center fw-medium">Huge maintenance cut completed this afternoon</div>
             </div>
           </div>
           <div class="swiper-slide">
             <div class="rounded shadow overflow-hidden bg-white p-2">
-              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@aas.yardmen/video/7501401304128883991" data-video-id="7501401304128883991" style="max-width: 100%;min-width: 325px;">
-                <section> </section>
-              </blockquote>
+              <div class="tiktok-embed-container" style="min-width:325px;max-width:100%;">
+                <iframe src="https://www.tiktok.com/embed/v2/7501401304128883991"
+                        title="TikTok Video"
+                        loading="lazy"
+                        allow="autoplay; encrypted-media"
+                        sandbox="allow-scripts allow-same-origin"
+                        style="width:100%;height:480px;border:none;border-radius:8px;overflow:hidden;"
+                        referrerpolicy="no-referrer"
+                        aria-label="TikTok Video"></iframe>
+                <noscript>
+                  <div class="tiktok-fallback">TikTok video unavailable. <a href="https://www.tiktok.com/@aas.yardmen/video/7501401304128883991" target="_blank" rel="noopener">Watch on TikTok</a></div>
+                </noscript>
+              </div>
               <div class="mt-2 text-center fw-medium">Full back garden clean up</div>
             </div>
           </div>
-          <!-- Add more TikTok swiper-slide blocks here as needed -->
         </div>
         <div class="swiper-button-next tiktok-swiper-next"></div>
         <div class="swiper-button-prev tiktok-swiper-prev"></div>
@@ -473,56 +417,6 @@
     </div>
   </section>
 
-  <!-- Social Proof Section -->
-  <div class="container py-4 text-center" data-aos="fade-up">
-    <span class="badge bg-success fs-5 px-4 py-2 me-2 mb-2"><i class="bi bi-star-fill me-1"></i>Rated 5 Stars on Google</span>
-    <span class="badge bg-success fs-5 px-4 py-2 mb-2"><i class="bi bi-people-fill me-1"></i>Trusted by 100+ Local Customers</span>
-  </div>
-
-  <!-- Call to Action Banner -->
-  <section class="py-5 bg-success text-white text-center" data-aos="zoom-in">
-    <div class="container">
-      <h2 class="fw-bold mb-3">Ready for a Tidy Garden or Sparkling Windows?</h2>
-      <p class="lead mb-4">Book your service now and let AA's Yardmen do the hard work for you!</p>
-      <button class="btn btn-light btn-lg fw-bold px-5" data-bs-toggle="modal" data-bs-target="#bookingModal">Book Now</button>
-    </div>
-  </section>
-
-  <!-- Sticky Mobile CTA Bar -->
-  <div class="d-lg-none fixed-bottom bg-success text-white text-center py-2 shadow" style="z-index:1060;">
-    <button class="btn btn-warning fw-bold px-3" data-bs-toggle="modal" data-bs-target="#bookingModal">
-      <i class="bi bi-lightning-charge me-1"></i>Quick Quote
-    </button>
-  </div>
-
-  <!-- Contact/Booking Section -->
-  <section class="py-5" id="contact" data-aos="fade-up" style="scroll-margin-top:80px;">
-    <div class="container">
-      <h2 class="fw-bold text-center mb-4"><i class="bi bi-chat-dots text-success me-2"></i>Book or Contact AA's Yardmen</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="card shadow border-0">
-            <div class="card-body">
-              <p class="mb-3 fs-5">
-                <i class="bi bi-info-circle text-success me-2"></i>
-                <strong>Booking Policy:</strong> Please text <a href="sms:07516487733?body=Hey%2C%20I%20would%20like%20to%20book%20in%20for..." class="fw-bold text-success" style="text-decoration:underline;">07516 487733</a> to book your slot with AA's Yardmen.
-              </p>
-              <div class="d-grid gap-2 mb-3">
-                <a href="sms:07516487733?body=Hey%2C%20I%20would%20like%20to%20book%20in%20for..." class="btn btn-success btn-lg fw-bold" aria-label="Text to Book">Text to Book: 07516 487733</a>
-                <a href="mailto:support@aayardmen.co.uk" class="btn btn-outline-success btn-lg fw-bold" aria-label="Email AA's Yardmen">Email Us</a>
-                <a href="https://www.tiktok.com/@aas.yardmen" class="btn btn-outline-dark btn-lg fw-bold" target="_blank" rel="noopener" aria-label="View TikTok">TikTok Videos</a>
-              </div>
-              <div class="text-muted small">
-                Prefer a call? Text us first and we'll call you back!
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="py-4 bg-dark text-white text-center">
     <div class="container">
       <img src="assets/aa-logo.jpg" alt="AA's Yardmen Logo" style="height:40px;width:auto;" class="mb-2">
@@ -538,7 +432,6 @@
     </div>
   </footer>
 
-  <!-- Back to Top Button -->
   <button type="button" class="btn btn-success rounded-circle shadow position-fixed" id="backToTopBtn" style="bottom:30px;right:30px;display:none;z-index:1050;">
     <i class="bi bi-arrow-up fs-4"></i>
   </button>
@@ -548,13 +441,11 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://www.tiktok.com/embed.js"></script>
+  <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Hide loading overlay
       document.getElementById('loadingOverlay').style.display = 'none';
       AOS.init();
-      // Swiper setup
       if (window.Swiper) {
         new Swiper('.mySwiper', {
           loop: true,
@@ -574,20 +465,23 @@
           breakpoints: { 768: { slidesPerView: 2, centeredSlides: false } }
         });
       }
-      // Back to top button logic
       const backToTopBtn = document.getElementById('backToTopBtn');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 400) backToTopBtn.style.display = 'block';
         else backToTopBtn.style.display = 'none';
       });
       backToTopBtn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
-      // Loading spinner overlay
       setTimeout(() => { document.getElementById('loadingOverlay').style.display = 'none'; }, 800);
-      // Auto-play reviews carousel
       const reviewsCarousel = document.getElementById('reviewsCarousel');
       if (reviewsCarousel) {
         new bootstrap.Carousel(reviewsCarousel, { interval: 6000, ride: 'carousel' });
       }
+      document.querySelectorAll('.tiktok-embed-container iframe').forEach(iframe => {
+        iframe.onerror = function() {
+          this.style.display = 'none';
+          this.parentElement.querySelector('.tiktok-fallback').style.display = 'block';
+        };
+      });
     });
   </script>
 </body>
