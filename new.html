@@ -3,256 +3,267 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AA's Yardmen Ltd | External Cleaning & Garden Care Glasgow</title>
-  <meta name="description" content="AA's Yardmen Ltd offers expert external cleaning and garden care services in Glasgow. Professional, eco-friendly lawn maintenance and commercial cleaning." />
-  <meta name="keywords" content="external cleaning Glasgow, lawn care Glasgow, garden maintenance, commercial cleaning, AA's Yardmen" />
-  <meta name="author" content="Alan Parsons - AA's Yardmen" />
-  
-  <!-- Open Graph for social sharing -->
-  <meta property="og:title" content="AA's Yardmen Ltd | External Cleaning & Garden Care Glasgow" />
-  <meta property="og:description" content="Professional external cleaning and garden care services. Eco-friendly, reliable, and serving Glasgow and beyond." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://aa-s-yardmen.github.io/" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" />
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-
+  <title>AA's Yardmen Ltd | External Cleaning & Lawn Care Glasgow</title>
+  <meta name="description" content="Professional external cleaning and lawn care services in Glasgow by AA's Yardmen Ltd. Book your free quote today." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
-    /* Reset and base styles */
-    *, *::before, *::after { box-sizing: border-box; }
     body {
-      margin: 0; padding: 0;
-      font-family: 'Roboto', Arial, sans-serif;
-      background: #f9fafb;
-      color: #222;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff;
+      color: #2e7d32; /* AA's Yardmen green */
     }
-    a { color: #b35d2a; text-decoration: none; }
-    a:hover, a:focus { text-decoration: underline; }
-    h1, h2, h3 { margin-top: 0; color: #4a2e0f; }
-    h1 { font-size: 2.25rem; }
-    h2 { font-size: 1.75rem; margin-bottom: 0.5rem; }
-    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
-    p { margin: 0 0 1rem; }
-    img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
-
-    /* Container */
-    .container {
-      max-width: 1024px;
-      margin: 0 auto;
-      padding: 0 1rem;
+    .navbar, .footer {
+      background-color: #2e7d32;
     }
-
-    /* Header */
-    header {
-      background-color: #b35d2a;
-      color: #fff;
-      padding: 1rem 0;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    }
-    header nav a {
-      color: #fff;
-      margin: 0 0.75rem;
+    .navbar-brand, .footer-text {
+      color: #fff !important;
       font-weight: 700;
-      font-size: 1rem;
-    }
-    header nav a:focus-visible {
-      outline: 3px solid #fff;
-      outline-offset: 2px;
-    }
-
-    /* Hero */
-    .hero {
-      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-      color: #fff;
-      padding: 4rem 1rem 5rem;
-      text-align: center;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
-    }
-    .hero h1 { font-size: 2.75rem; max-width: 700px; margin: 0 auto 1rem; }
-    .hero p { font-size: 1.25rem; max-width: 600px; margin: 0 auto; }
-
-    /* Sections */
-    section {
-      padding: 3rem 0;
-    }
-    section.bg-light {
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgb(179 93 42 / 0.1);
-      margin-bottom: 2rem;
-    }
-    .section-title {
-      text-align: center;
-      color: #4a2e0f;
-      margin-bottom: 2rem;
-      font-weight: 700;
-    }
-
-    /* Flex grid for content */
-    .row {
+      font-size: 1.5rem;
+      letter-spacing: 1px;
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
       align-items: center;
+      gap: 0.5rem;
     }
-    .col-6 {
-      flex: 0 0 100%;
-      max-width: 100%;
+    .navbar-brand img {
+      height: 40px;
+      border-radius: 5px;
+      background: #fff;
+      padding: 2px 4px;
     }
-    @media(min-width: 768px) {
-      .col-6 {
-        flex: 0 0 48%;
-        max-width: 48%;
-      }
+    .btn-primary {
+      background-color: #2e7d32;
+      border-color: #2e7d32;
     }
-
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      background-color: #b35d2a;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      border: none;
+    .btn-primary:hover {
+      background-color: #27632a;
+      border-color: #27632a;
+    }
+    header.hero {
+      background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+    header.hero .container {
+      max-width: 600px;
+    }
+    section {
+      padding: 60px 0;
+    }
+    footer.footer {
+      padding: 20px 0;
       text-align: center;
+    }
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
       transition: background-color 0.3s ease;
-      user-select: none;
-      margin-top: 1rem;
+      cursor: pointer;
     }
-    .btn:hover, .btn:focus {
-      background-color: #9a4c22;
-      outline: none;
-      text-decoration: none;
+    .whatsapp-btn:hover {
+      background-color: #1ebe5b;
     }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 1rem 0;
-      background-color: #b35d2a;
-      color: #fff;
-      font-size: 0.9rem;
-    }
-
-    /* Accessibility focus */
-    a:focus-visible, button:focus-visible {
-      outline: 3px solid #4a2e0f;
-      outline-offset: 3px;
+    .whatsapp-btn svg {
+      fill: white;
+      width: 32px;
+      height: 32px;
     }
   </style>
+  <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
 </head>
 <body>
-  <header role="banner" aria-label="Main navigation">
-    <nav class="container" role="navigation" aria-label="Primary navigation">
-      <a href="#about">About Us</a>
-      <a href="#services">Services</a>
-      <a href="#crowdfunding">Crowdfunding</a>
-      <a href="#contact">Contact</a>
-    </nav>
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="https://www.crowdfunder.co.uk/uploads/projects/1556370.jpg?1705014365" alt="AA's Yardmen Ltd Logo" />
+        AA's Yardmen Ltd
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="color:#fff;">☰</span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link text-white" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#why">Why Choose Us</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero d-flex align-items-center">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold">Exceptional External Cleaning & Lawn Care</h1>
+      <p class="lead">Transforming Glasgow's outdoor spaces with care and professionalism.</p>
+      <a href="#contact" class="btn btn-primary btn-lg mt-3">Get Your Free Quote</a>
+    </div>
   </header>
 
-  <main>
-    <section class="hero" role="img" aria-label="Beautiful outdoor garden and clean driveway">
-      <h1>AA's Yardmen Ltd</h1>
-      <p>Expert External Cleaning & Garden Care in Glasgow</p>
+  <main class="container">
+
+    <section id="about" class="text-center">
+      <h2>About AA's Yardmen Ltd</h2>
+      <p class="fs-5 mt-3">
+        AA's Yardmen Ltd is a dedicated team of professional cleaners and yardmen offering first-class commercial and residential external cleaning and lawn care services in Glasgow and surrounding areas. We pride ourselves on attention to detail, using eco-friendly products and advanced techniques to create pristine, inviting outdoor environments.
+      </p>
     </section>
 
-    <section id="about" class="container bg-light" aria-labelledby="about-title">
-      <h2 id="about-title" class="section-title">About AA's Yardmen</h2>
-      <p>Welcome to AA's Yardmen Ltd, a team of professional commercial cleaners providing first-class external cleaning and lawn care services in Glasgow and beyond. We transform your workspace or garden into a spotless, pristine environment.</p>
-      <p>Our dedicated team uses eco-friendly products and advanced techniques to deliver deep, lasting cleans that are environmentally responsible.</p>
-      <p>From office buildings and retail spaces to graffiti removal and driveway cleaning, we tailor our cleaning solutions to your unique needs. For lawn care, we offer mowing, fertilisation, weed control, landscaping, jet washing and more.</p>
-      <p>Trust AA's Yardmen Ltd for exceptional cleanliness, reliability, and outdoor spaces that truly shine.</p>
-    </section>
-
-    <section id="services" class="container" aria-labelledby="services-title">
-      <h2 id="services-title" class="section-title">Our Services</h2>
-      <div class="row">
-        <div class="col-6">
-          <h3>External Cleaning</h3>
-          <ul>
-            <li>Commercial & Residential Property Cleaning</li>
-            <li>Graffiti Removal</li>
-            <li>Driveway & Pavement Cleaning</li>
-            <li>Eco-friendly Products & Deep Cleaning Techniques</li>
-          </ul>
+    <section id="services" class="bg-light rounded p-4">
+      <h2 class="text-center mb-4">Our Services</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Garden maintenance">
+            <div class="card-body">
+              <h5 class="card-title text-success">Garden Maintenance</h5>
+              <p class="card-text">Lawn mowing, fertilisation, weed control, landscaping and garden tidying tailored to your needs.</p>
+            </div>
+          </div>
         </div>
-        <div class="col-6">
-          <h3>Lawn Care & Garden Maintenance</h3>
-          <ul>
-            <li>Lawn Mowing & Fertilisation</li>
-            <li>Weed Control & Landscaping</li>
-            <li>Jet Washing & Garden Cleaning</li>
-            <li>Personalised & Meticulous Service</li>
-          </ul>
+        <div class="col">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1556911073-52527ac437f5?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Driveway cleaning">
+            <div class="card-body">
+              <h5 class="card-title text-success">External Cleaning</h5>
+              <p class="card-text">Driveway, patio, decking cleaning, graffiti removal, and jet washing with eco-friendly methods.</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section id="crowdfunding" class="container bg-light" aria-labelledby="crowdfunding-title">
-      <h2 id="crowdfunding-title" class="section-title">Support Our Growth</h2>
-      <div class="row">
-        <div class="col-6">
-          <img 
-            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" 
-            alt="AA's Yardmen team working outdoors"
-            loading="lazy"
-          />
-        </div>
-        <div class="col-6">
-          <p>Hello, my name is <strong>Alan Parsons</strong>, founder of AA's Yardmen. We’ve had a successful first year providing exceptional lawn care and external cleaning for homes and businesses.</p>
-          <p>Thanks to our early success, we’ve upgraded to a larger van and better tools, allowing us to deliver fast, reliable service — but now we need your help to grow our team and maintain the highest standards.</p>
-          <p>Your support in our crowdfunding campaign will help us hire a full-time employee, enabling us to serve more clients and respond faster while maintaining top quality.</p>
-          <p>By investing in AA's Yardmen, you’re not only supporting local business growth but also helping beautify and green our community, fostering pride and well-being through well-maintained outdoor spaces.</p>
-          <p><em>Join us in transforming Glasgow's outdoor spaces. Together, we can cultivate stunning landscapes and make a lasting positive impact.</em></p>
-          <p><strong>Thank you for your support!</strong><br>Alan Parsons, Founder</p>
-          <a href="#contact" class="btn">Support Our Crowdfund</a>
+        <div class="col">
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Commercial cleaning">
+            <div class="card-body">
+              <h5 class="card-title text-success">Commercial Cleaning</h5>
+              <p class="card-text">Professional cleaning solutions for offices, retail spaces and commercial premises.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="container" aria-labelledby="contact-title">
-      <h2 id="contact-title" class="section-title">Contact Us</h2>
-      <p>Ready to transform your outdoor spaces or need a quote? Contact AA's Yardmen today!</p>
-      <ul>
-        <li><strong>Phone:</strong> <a href="tel:+441412345678">+44 141 234 5678</a></li>
-        <li><strong>SMS Quote Request:</strong> <a href="sms:+441412345678?body=Hello%20AA%27s%20Yardmen%2C%20I%20would%20like%20a%20quote%20for%20your%20services.">Send SMS</a></li>
-        <li><strong>Email:</strong> <a href="mailto:info@aasyardmen.co.uk">info@aasyardmen.co.uk</a></li>
+    <section id="why" class="text-center mt-5">
+      <h2>Why Choose AA's Yardmen?</h2>
+      <ul class="list-unstyled fs-5 mt-3">
+        <li>✔ Reliable, punctual and trustworthy team.</li>
+        <li>✔ Eco-friendly products and sustainable practices.</li>
+        <li>✔ Tailored services to suit your specific needs.</li>
+        <li>✔ Competitive pricing with no hidden fees.</li>
+        <li>✔ Fully insured and health & safety compliant.</li>
       </ul>
-      <p>We aim to respond quickly and provide reliable, friendly service.</p>
     </section>
+
+    <section id="faq" class="mt-5">
+      <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+      <div class="accordion mx-auto" id="faqAccordion" style="max-width: 700px;">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqHeadingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
+              What areas do you cover?
+            </button>
+          </h2>
+          <div id="faqCollapseOne" class="accordion-collapse collapse show" aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              We proudly serve Glasgow and the surrounding areas. Contact us to confirm your postcode.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqHeadingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+              Are your cleaning products safe for pets and children?
+            </button>
+          </h2>
+          <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Yes, we use eco-friendly, pet-safe and child-safe products to protect your family and the environment.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqHeadingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+              How do I get a free quote?
+            </button>
+          </h2>
+          <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Simply fill out the form below or contact us directly on WhatsApp for a prompt free quote.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqHeadingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
+              Are you insured and compliant with health & safety?
+            </button>
+          </h2>
+          <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Absolutely. AA's Yardmen Ltd is fully insured and compliant with all relevant health and safety regulations.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="mt-5">
+      <h2 class="text-center mb-4">Get Your Free Quote</h2>
+      <form action="https://formspree.io/f/your-form-id" method="POST" class="mx-auto" style="max-width: 600px;">
+        <div class="mb-3">
+          <label for="name" class="form-label">Your Name *</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="John Smith" required />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address *</label>
+          <input type="email" class="form-control" id="email" name="_replyto" placeholder="john@example.co.uk" required />
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone Number *</label>
+          <input type="tel" class="form-control" id="phone" name="phone" placeholder="07400 123456" required pattern="^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$" />
+          <div class="form-text">Please provide a valid UK mobile number.</div>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Your Message *</label>
+          <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us what you need" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Send Enquiry</button>
+      </form>
+    </section>
+
   </main>
 
-  <footer role="contentinfo">
-    <p>© 2025 AA's Yardmen Ltd — Glasgow, Scotland</p>
-    <p>
-      <a href="https://facebook.com/aasyardmen" target="_blank" rel="noopener noreferrer">Facebook</a> | 
-      <a href="https://instagram.com/aasyardmen" target="_blank" rel="noopener noreferrer">Instagram</a> | 
-      <a href="https://twitter.com/aasyardmen" target="_blank" rel="noopener noreferrer">Twitter</a>
-    </p>
+  <footer class="footer mt-5">
+    <div class="container">
+      <a class="navbar-brand justify-content-center" href="#">
+        <img src="https://www.crowdfunder.co.uk/uploads/projects/1556370.jpg?1705014365" alt="AA's Yardmen Ltd Logo" />
+        AA's Yardmen Ltd
+      </a>
+      <p class="footer-text mb-0 mt-2">&copy; 2025 AA's Yardmen Ltd. All rights reserved. Registered in Glasgow, Scotland.</p>
+    </div>
   </footer>
 
-  <!-- Sienna widget embed example -->
-  <script src="https://cdn.sienna.com/widget.js" defer></script>
-  <script>
-    window.onload = function() {
-      Sienna.init({
-        widgetId: 'your-widget-id', // Replace with your actual widget ID
-        position: 'bottom-right',
-        theme: 'sienna-light',
-      });
-    };
-  </script>
+  <!-- WhatsApp Chat Button -->
+  <a href="https://wa.me/447516487733" target="_blank" aria-label="Chat with AA's Yardmen on WhatsApp" class="whatsapp-btn" title="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M20.52 3.48a11.63 11.63 0 0 0-16.4 16.4L3 21l1.1-3.22a11.64 11.64 0 0 0 16.4-14.3Zm-1.44 11.1c-.3.86-1.75 1.64-2.42 1.74-.64.09-1.32.13-2-.06a4.67 4.67 0 0 1-2.53-1.19 4.3 4.3 0 0 1-1.33-2.3c-.12-.65-.02-1.28.2-1.83.25-.66 1.68-1.59 2.35-1.67a1.53 1.53 0 0 1 1.47.72c.13.21.37.62.43.7.06.08.11.18.05.28-.06.1-.1.17-.15.27a.81.81 0 0 1-.43.44c-.23.12-.43.12-.67.05-.26-.08-1-.35-1.92-1.2a7.48 7.48 0 0 0-2.14-1.68 2.78 2.78 0 0 0-1.93-.1 1.2 1.2 0 0 0-.74.67c-.19.36-.67 2.46.8 4.1 1.1 1.15 2.57 2 3.71 2.14 1.16.14 2.12-.32 2.45-.63a2.04 2.04 0 0 0 .64-1.4c0-.27-.05-.48-.14-.67Z"/>
+    </svg>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
