@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AA's Yardmen Ltd | External Cleaning & Garden Care Glasgow</title>
+  <meta name="description" content="AA's Yardmen Ltd offers expert external cleaning and garden care services in Glasgow. Professional, eco-friendly lawn maintenance and commercial cleaning." />
+  <meta name="keywords" content="external cleaning Glasgow, lawn care Glasgow, garden maintenance, commercial cleaning, AA's Yardmen" />
+  <meta name="author" content="Alan Parsons - AA's Yardmen" />
+  
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="AA's Yardmen Ltd | External Cleaning & Garden Care Glasgow" />
+  <meta property="og:description" content="Professional external cleaning and garden care services. Eco-friendly, reliable, and serving Glasgow and beyond." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aa-s-yardmen.github.io/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Reset and base styles */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: #f9fafb;
+      color: #222;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: #b35d2a; text-decoration: none; }
+    a:hover, a:focus { text-decoration: underline; }
+    h1, h2, h3 { margin-top: 0; color: #4a2e0f; }
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    p { margin: 0 0 1rem; }
+    img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
+
+    /* Container */
+    .container {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Header */
+    header {
+      background-color: #b35d2a;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+    header nav a {
+      color: #fff;
+      margin: 0 0.75rem;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    header nav a:focus-visible {
+      outline: 3px solid #fff;
+      outline-offset: 2px;
+    }
+
+    /* Hero */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: #fff;
+      padding: 4rem 1rem 5rem;
+      text-align: center;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+    }
+    .hero h1 { font-size: 2.75rem; max-width: 700px; margin: 0 auto 1rem; }
+    .hero p { font-size: 1.25rem; max-width: 600px; margin: 0 auto; }
+
+    /* Sections */
+    section {
+      padding: 3rem 0;
+    }
+    section.bg-light {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgb(179 93 42 / 0.1);
+      margin-bottom: 2rem;
+    }
+    .section-title {
+      text-align: center;
+      color: #4a2e0f;
+      margin-bottom: 2rem;
+      font-weight: 700;
+    }
+
+    /* Flex grid for content */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .col-6 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    @media(min-width: 768px) {
+      .col-6 {
+        flex: 0 0 48%;
+        max-width: 48%;
+      }
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background-color: #b35d2a;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      margin-top: 1rem;
+    }
+    .btn:hover, .btn:focus {
+      background-color: #9a4c22;
+      outline: none;
+      text-decoration: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background-color: #b35d2a;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    /* Accessibility focus */
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid #4a2e0f;
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+  <header role="banner" aria-label="Main navigation">
+    <nav class="container" role="navigation" aria-label="Primary navigation">
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#crowdfunding">Crowdfunding</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" role="img" aria-label="Beautiful outdoor garden and clean driveway">
+      <h1>AA's Yardmen Ltd</h1>
+      <p>Expert External Cleaning & Garden Care in Glasgow</p>
+    </section>
+
+    <section id="about" class="container bg-light" aria-labelledby="about-title">
+      <h2 id="about-title" class="section-title">About AA's Yardmen</h2>
+      <p>Welcome to AA's Yardmen Ltd, a team of professional commercial cleaners providing first-class external cleaning and lawn care services in Glasgow and beyond. We transform your workspace or garden into a spotless, pristine environment.</p>
+      <p>Our dedicated team uses eco-friendly products and advanced techniques to deliver deep, lasting cleans that are environmentally responsible.</p>
+      <p>From office buildings and retail spaces to graffiti removal and driveway cleaning, we tailor our cleaning solutions to your unique needs. For lawn care, we offer mowing, fertilisation, weed control, landscaping, jet washing and more.</p>
+      <p>Trust AA's Yardmen Ltd for exceptional cleanliness, reliability, and outdoor spaces that truly shine.</p>
+    </section>
+
+    <section id="services" class="container" aria-labelledby="services-title">
+      <h2 id="services-title" class="section-title">Our Services</h2>
+      <div class="row">
+        <div class="col-6">
+          <h3>External Cleaning</h3>
+          <ul>
+            <li>Commercial & Residential Property Cleaning</li>
+            <li>Graffiti Removal</li>
+            <li>Driveway & Pavement Cleaning</li>
+            <li>Eco-friendly Products & Deep Cleaning Techniques</li>
+          </ul>
+        </div>
+        <div class="col-6">
+          <h3>Lawn Care & Garden Maintenance</h3>
+          <ul>
+            <li>Lawn Mowing & Fertilisation</li>
+            <li>Weed Control & Landscaping</li>
+            <li>Jet Washing & Garden Cleaning</li>
+            <li>Personalised & Meticulous Service</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="crowdfunding" class="container bg-light" aria-labelledby="crowdfunding-title">
+      <h2 id="crowdfunding-title" class="section-title">Support Our Growth</h2>
+      <div class="row">
+        <div class="col-6">
+          <img 
+            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" 
+            alt="AA's Yardmen team working outdoors"
+            loading="lazy"
+          />
+        </div>
+        <div class="col-6">
+          <p>Hello, my name is <strong>Alan Parsons</strong>, founder of AA's Yardmen. We’ve had a successful first year providing exceptional lawn care and external cleaning for homes and businesses.</p>
+          <p>Thanks to our early success, we’ve upgraded to a larger van and better tools, allowing us to deliver fast, reliable service — but now we need your help to grow our team and maintain the highest standards.</p>
+          <p>Your support in our crowdfunding campaign will help us hire a full-time employee, enabling us to serve more clients and respond faster while maintaining top quality.</p>
+          <p>By investing in AA's Yardmen, you’re not only supporting local business growth but also helping beautify and green our community, fostering pride and well-being through well-maintained outdoor spaces.</p>
+          <p><em>Join us in transforming Glasgow's outdoor spaces. Together, we can cultivate stunning landscapes and make a lasting positive impact.</em></p>
+          <p><strong>Thank you for your support!</strong><br>Alan Parsons, Founder</p>
+          <a href="#contact" class="btn">Support Our Crowdfund</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="section-title">Contact Us</h2>
+      <p>Ready to transform your outdoor spaces or need a quote? Contact AA's Yardmen today!</p>
+      <ul>
+        <li><strong>Phone:</strong> <a href="tel:+441412345678">+44 141 234 5678</a></li>
+        <li><strong>SMS Quote Request:</strong> <a href="sms:+441412345678?body=Hello%20AA%27s%20Yardmen%2C%20I%20would%20like%20a%20quote%20for%20your%20services.">Send SMS</a></li>
+        <li><strong>Email:</strong> <a href="mailto:info@aasyardmen.co.uk">info@aasyardmen.co.uk</a></li>
+      </ul>
+      <p>We aim to respond quickly and provide reliable, friendly service.</p>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>© 2025 AA's Yardmen Ltd — Glasgow, Scotland</p>
+    <p>
+      <a href="https://facebook.com/aasyardmen" target="_blank" rel="noopener noreferrer">Facebook</a> | 
+      <a href="https://instagram.com/aasyardmen" target="_blank" rel="noopener noreferrer">Instagram</a> | 
+      <a href="https://twitter.com/aasyardmen" target="_blank" rel="noopener noreferrer">Twitter</a>
+    </p>
+  </footer>
+
+  <!-- Sienna widget embed example -->
+  <script src="https://cdn.sienna.com/widget.js" defer></script>
+  <script>
+    window.onload = function() {
+      Sienna.init({
+        widgetId: 'your-widget-id', // Replace with your actual widget ID
+        position: 'bottom-right',
+        theme: 'sienna-light',
+      });
+    };
+  </script>
+</body>
+</html>
