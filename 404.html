@@ -3,20 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found - AA's Yardmen Ltd</title>
+    <title>404 - Lost in the Garden | AA's Yardmen Ltd</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e8f5e9 0%, #b2dfdb 100%);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .garden-404-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+        .garden-404-title {
+            font-size: 7rem;
+            font-weight: 900;
+            color: #43e97b;
+            text-shadow: 0 4px 32px #0002, 0 0 10px #38f9d7;
+            margin-bottom: 0.5rem;
+        }
+        .garden-404-desc {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            text-shadow: 0 2px 8px #fff8;
+        }
+        .garden-tip-404 {
+            background: rgba(67,233,123,0.12);
+            color: #388e3c;
+            border-left: 5px solid #38f9d7;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn-home-404 {
+            background: linear-gradient(90deg,#43e97b 0%,#38f9d7 100%);
+            color: #fff;
+            border: none;
+            font-size: 1.2rem;
+            padding: 0.75rem 2.5rem;
+            border-radius: 2rem;
+            box-shadow: 0 4px 24px #38f9d7aa;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .btn-home-404:hover {
+            background: linear-gradient(90deg,#38f9d7 0%,#43e97b 100%);
+            color: #fff;
+            transform: translateY(-3px) scale(1.04);
+        }
+        .ghost-404 {
+            width: 100px;
+            margin: 2rem auto 1rem auto;
+            display: block;
+            filter: drop-shadow(0 8px 24px #000a);
+            animation: ghostFloat 3s infinite ease-in-out;
+        }
+        @keyframes ghostFloat {
+            0% { transform: translateY(0);}
+            50% { transform: translateY(-20px);}
+            100% { transform: translateY(0);}
+        }
+        .footer-404 {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            text-align: center;
+            color: #555;
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            background: rgba(255,255,255,0.7);
+            letter-spacing: 0.05em;
+        }
+        .leaf {
+            width: 80px;
+            position: absolute;
+            left: 10vw;
+            top: 10vh;
+            opacity: 0.7;
+            animation: floatLeaf 6s infinite ease-in-out alternate;
+        }
+        .leaf2 {
+            left: 80vw;
+            top: 20vh;
+            animation-delay: 2s;
+            transform: scaleX(-1);
+        }
+        @keyframes floatLeaf {
+            0% { transform: translateY(0) rotate(-10deg);}
+            50% { transform: translateY(-30px) rotate(10deg);}
+            100% { transform: translateY(0) rotate(-10deg);}
+        }
+        .weather-widget-404 {
+            margin: 2rem auto 1rem auto;
+            max-width: 350px;
+        }
+        .review-widget-404 {
+            margin: 2rem auto 1rem auto;
+            max-width: 350px;
+        }
+        @media (max-width: 600px) {
+            .garden-404-title { font-size: 3.5rem; }
+            .garden-404-desc { font-size: 1.1rem; }
+            .garden-tip-404 { font-size: 1rem; }
+            .ghost-404 { width: 70px; }
+        }
+    </style>
 </head>
-<body class="d-flex align-items-center justify-content-center min-vh-100">
-    <div class="text-center">
-        <img src="https://www.crowdfunder.co.uk/uploads/projects/1556370.jpg?1705014365" 
-             alt="AA's Yardmen Logo" 
-             height="100" 
-             class="mb-4">
-        <h1>Page Not Found</h1>
-        <p class="lead">Sorry, we couldn't find what you were looking for.</p>
-        <a href="./" class="btn btn-primary">Return Home</a>
-        <a href="https://wa.me/447516487733" class="btn btn-outline-primary ms-2">Contact Us</a>
+<body>
+    
+    <div class="garden-404-container text-center">
+        <div class="garden-404-title">404</div>
+        <img src="https://pngimg.com/uploads/ghost/ghost_PNG36.png" alt="Ghost" class="ghost-404" />
+        <div class="garden-404-desc">Lost in the garden? This page is overgrown or doesn't exist.</div>
+        <div class="garden-tip-404" id="garden-tip-404"></div>
+        <div class="my-3" id="ip-warning" style="font-size:1.1rem;color:#b71c1c;"></div>
+        <a href="./index.html" class="btn btn-home-404 mt-2 mb-3">Return Home</a>
     </div>
+    <div class="footer-404">
+        &copy; 2024 AA's Yardmen Ltd &mdash; Glasgow's Garden & Exterior Experts
+    </div>
+    <script>
+        // Random gardening tip
+        const tips = [
+            "🌱 Did you know? Coffee grounds make great compost for your garden.",
+            "🌻 Tip: Water your plants early in the morning to reduce evaporation.",
+            "🐞 Fun fact: Ladybirds are natural pest controllers in your garden.",
+            "🍂 Mulching helps retain soil moisture and suppress weeds.",
+            "✂️ Prune shrubs after flowering to encourage healthy growth.",
+            "🌼 Planting native flowers attracts more pollinators to your garden.",
+            "🌧️ Rainwater is best for your plants—set up a water butt to collect it!"
+        ];
+        document.getElementById('garden-tip-404').textContent = tips[Math.floor(Math.random() * tips.length)];
+
+        // Show IP and force redirect
+        fetch('https://api.ipify.org?format=json')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('ip-warning').innerHTML =
+                    `Your IP address: <strong>${data.ip}</strong><br>
+                    You are not allowed here. Redirecting you to the homepage...`;
+                setTimeout(() => {
+                    window.location.href = "./index.html";
+                }, 5000);
+            })
+            .catch(() => {
+                document.getElementById('ip-warning').innerHTML =
+                    "Unable to retrieve your IP address.<br>Redirecting you to the homepage...";
+                setTimeout(() => {
+                    window.location.href = "./index.html";
+                }, 5000);
+            });
+    </script>
 </body>
 </html>
