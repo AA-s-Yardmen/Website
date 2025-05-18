@@ -9,7 +9,8 @@
     <meta property="og:description" content="AA's Yardmen Ltd: Glasgow's trusted team for garden maintenance, landscaping, and exterior cleaning. Reliable, friendly, and fully insured.">
     <meta property="og:image" content="https://www.crowdfunder.co.uk/uploads/projects/1556370.jpg?1705014365">
     <meta property="og:url" content="https://aasyardmen.co.uk">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
@@ -88,7 +89,59 @@
         .carousel-item {
             padding-bottom: 2rem;
         }
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            z-index: 1060;
+            box-shadow: 0 -4px 16px rgba(0,0,0,0.1);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .cookie-banner.show {
+            transform: translateY(0);
+        }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "AA's Yardmen Ltd",
+        "image": "https://www.crowdfunder.co.uk/uploads/projects/1556370.jpg?1705014365",
+        "telephone": "+447516487733",
+        "email": "info@aasyardmen.co.uk",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "272 Bath Street",
+            "addressLocality": "Glasgow",
+            "postalCode": "G2 4JR",
+            "addressCountry": "GB"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 55.868,
+            "longitude": -4.112
+        },
+        "priceRange": "££",
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+            ],
+            "opens": "08:00",
+            "closes": "18:00"
+        }
+    }
+    </script>
 </head>
 <body>
     <!-- Navbar -->
@@ -273,38 +326,105 @@
             <h2 class="text-center mb-5 fw-bold text-success">Frequently Asked Questions</h2>
             <div class="accordion faq-accordion" id="faqAccordion">
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="faqHeading1">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true">
-                            Do you offer regular maintenance plans?
+                    <h2 class="accordion-header" id="faqPricing">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqPricingCollapse">
+                            How much do your services cost?
                         </button>
                     </h2>
-                    <div id="faqCollapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                    <div id="faqPricingCollapse" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Yes! We offer weekly, fortnightly, and monthly plans to keep your garden looking its best.
+                            Prices vary depending on the size of your property and specific requirements. We offer free, no-obligation quotes and competitive rates. Contact us via WhatsApp or phone for a quick estimate.
                         </div>
                     </div>
                 </div>
+
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="faqHeading2">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2">
-                            Are you insured and DBS checked?
+                    <h2 class="accordion-header" id="faqArea">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqAreaCollapse">
+                            Which areas do you cover?
                         </button>
                     </h2>
-                    <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div id="faqAreaCollapse" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Absolutely. Our team is fully insured and background-checked for your peace of mind.
+                            We primarily serve Glasgow and surrounding areas including Easterhouse, Parkhead, Dennistoun, Shettleston, Bridgeton, and Tollcross. Contact us to check if we cover your area.
                         </div>
                     </div>
                 </div>
+
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="faqHeading3">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3">
-                            Can I get a quote online?
+                    <h2 class="accordion-header" id="faqMaintenance">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqMaintenanceCollapse">
+                            What maintenance plans do you offer?
                         </button>
                     </h2>
-                    <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div id="faqMaintenanceCollapse" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Yes, just WhatsApp us or use the contact options below for a free, no-obligation quote.
+                            We offer flexible maintenance plans including weekly, fortnightly, and monthly visits. Each plan can be customized to your garden's specific needs and budget.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqWeather">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqWeatherCollapse">
+                            What happens if it rains on my scheduled day?
+                        </button>
+                    </h2>
+                    <div id="faqWeatherCollapse" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            If weather conditions are unsuitable, we'll contact you to reschedule for the next available slot. We're flexible and will work around the Scottish weather!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqEquipment">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEquipmentCollapse">
+                            Do I need to provide any equipment?
+                        </button>
+                    </h2>
+                    <div id="faqEquipmentCollapse" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            No, we bring all necessary professional equipment and supplies. We use eco-friendly products and modern equipment to ensure the best results for your property.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqInsurance">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqInsuranceCollapse">
+                            Are you insured and qualified?
+                        </button>
+                    </h2>
+                    <div id="faqInsuranceCollapse" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, we're fully insured and our team is professionally trained. We carry public liability insurance and are registered with Companies House (SC755769).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqEmergency">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEmergencyCollapse">
+                            Do you offer emergency services?
+                        </button>
+                    </h2>
+                    <div id="faqEmergencyCollapse" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, we offer emergency services for urgent situations like storm damage or graffiti removal. Contact us via phone or WhatsApp for immediate assistance.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqPayment">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPaymentCollapse">
+                            What payment methods do you accept?
+                        </button>
+                    </h2>
+                    <div id="faqPaymentCollapse" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            We accept bank transfers, card payments, and cash. For regular maintenance plans, we can set up monthly direct debits for your convenience.
                         </div>
                     </div>
                 </div>
@@ -574,6 +694,20 @@
     <a href="https://wa.me/447516487733?text=Hey%2C%20I%20was%20wondering%20about%20a%20quote%20for%20my%20garden" class="btn btn-success rounded-circle whatsapp-float shadow-lg" target="_blank" rel="noopener" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-9">
+                    <p class="mb-md-0">We use cookies to improve your experience. By using our site, you agree to our cookie policy.</p>
+                </div>
+                <div class="col-md-3 text-md-end">
+                    <button class="btn btn-gradient" onclick="acceptCookies()">Accept</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/your-kit-code.js"></script>

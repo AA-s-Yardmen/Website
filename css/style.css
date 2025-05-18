@@ -1,9 +1,14 @@
+/* Base Styles */
 :root {
     --primary: #2e7d32;
     --primary-dark: #1b5e20;
     --primary-light: #4caf50;
     --text-dark: #333;
     --text-light: #fff;
+    --primary-gradient: linear-gradient(90deg,#43e97b 0%,#38f9d7 100%);
+    --shadow-sm: 0 2px 12px rgba(46,125,50,0.10);
+    --shadow-lg: 0 8px 32px rgba(46,125,50,0.18);
+    --radius-lg: 1.5rem;
     
     /* Dark mode variables */
     --dark-bg: #121212;
@@ -847,5 +852,25 @@ body {
         flex-wrap: nowrap;
         overflow-x: auto;
         padding-bottom: 1rem;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #1a1a1a;
+        color: #ffffff;
+    }
+    .bg-glass {
+        background: rgba(255,255,255,0.1);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .whatsapp-float,
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none !important;
     }
 }
