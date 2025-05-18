@@ -1,223 +1,316 @@
-// Smooth scroll for anchor links with navbar offset, skip empty hashes
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const href = this.getAttribute('href');
-    if (!href || href === '#') return; // Ignore empty hash links
-    const target = document.querySelector(href);
-    if (target) {
-      e.preventDefault();
-      // Get navbar height
-      const navbar = document.querySelector('.navbar');
-      const offset = navbar ? navbar.offsetHeight : 0;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset + 1;
-      window.scrollTo({ top, behavior: 'smooth' });
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS with fixed settings
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 50,
+        disable: 'mobile'
+    });
 
-      // Collapse navbar on mobile after click
-      const navCollapse = document.getElementById('mainNav');
-      if (navCollapse && navCollapse.classList.contains('show')) {
-        const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navCollapse);
-        bsCollapse.hide();
-      }
+    // Modal Handling
+    const aboutModal = document.getElementById('aboutModal');
+    if (aboutModal) {
+        aboutModal.addEventListener('show.bs.modal', function() {
+            // Reset AOS animations inside modal
+            setTimeout(() => AOS.refresh(), 100);
+        });
+        
+        // Handle tab changes
+        aboutModal.querySelectorAll('[data-bs-toggle="tab"]').forEach(tab => {
+            tab.addEventListener('shown.bs.tab', function() {
+                AOS.refresh();
+            });
+        });
     }
-  });
+
+    // Handle deep linking
+    if (window.location.hash && window.location.hash.startsWith('#about-')) {
+        const targetTab = window.location.hash.replace('about-', '');
+        const modal = new bootstrap.Modal(aboutModal);
+        modal.show();
+        aboutModal.querySelector(`[data-bs-target="#${targetTab}"]`)?.click();
+    }
+
+    // Initialize VanillaTilt for cards
+    VanillaTilt.init(document.querySelectorAll(".js-tilt"), {
+        max: 5,
+        speed: 400,
+        glare: false
+    });
+
+    // Fix Counter Animation
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px'
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.dataset.target);
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+
+                function updateCounter() {
+                    if (current < target) {
+                        current = Math.min(current + step, target);
+                        counter.textContent = Math.round(current);
+                        requestAnimationFrame(updateCounter);
+                    }
+                }
+
+                updateCounter();
+                counterObserver.unobserve(counter);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.counter').forEach(counter => {
+        counterObserver.observe(counter);
+    });
 });
 
-// Highlight active nav link on scroll (skip if section missing)
-document.addEventListener('scroll', function() {
-  const sections = ['services', 'gallery', 'testimonials', 'contact', 'faq', 'about', 'how-it-works', 'reviews', 'projects'];
-  let current = '';
-  const scrollPos = window.scrollY + (document.querySelector('.navbar')?.offsetHeight || 0) + 10;
-  for (const id of sections) {
-    const el = document.getElementById(id);
-    if (el && el.offsetTop <= scrollPos) current = id;
-  }
-  document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active');
-      link.setAttribute('aria-current', 'page');
+// Back to Top Button
+window.addEventListener('scroll', function() {
+    const backToTop = document.getElementById('backToTop');
+    if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
     } else {
-      link.classList.remove('active');
-      link.removeAttribute('aria-current');
+        backToTop.classList.remove('visible');
     }
-  });
 });
 
-// FAQ smooth scroll (defensive)
-document.querySelectorAll('a[href="#faq"]').forEach(link => {
-  link.addEventListener('click', function(e) {
-    const faq = document.getElementById('faq');
-    if (faq) {
-      e.preventDefault();
-      faq.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-});
-
-// Autofill service in booking modal (static only)
-document.querySelectorAll('.book-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const serviceType = document.getElementById('serviceType');
-    if (serviceType) {
-      serviceType.value = this.getAttribute('data-service');
-    }
-  });
-});
-
-// Animated stats
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.stat-number').forEach(el => {
-    let end = el.getAttribute('data-count');
-    let isPercent = end.includes('%');
-    let isFloat = end.includes('.');
-    end = parseFloat(end);
-    let start = 0;
-    let duration = 1200;
-    let startTime = null;
-    function animateStat(ts) {
-      if (!startTime) startTime = ts;
-      let progress = Math.min((ts - startTime) / duration, 1);
-      let value = isFloat ? (start + (end - start) * progress).toFixed(1) : Math.floor(start + (end - start) * progress);
-      el.textContent = value + (isPercent ? '%' : '');
-      if (progress < 1) requestAnimationFrame(animateStat);
-    }
-    requestAnimationFrame(animateStat);
-  });
-
-  // Add error handling for external resources
-  window.addEventListener('error', function(e) {
-    if (e.target.tagName === 'SCRIPT' && e.target.src.includes('tiktok')) {
-      console.warn('TikTok embed failed to load - hiding container');
-      const tiktokContainer = document.querySelector('.tiktokSwiper');
-      if (tiktokContainer) {
-        tiktokContainer.style.display = 'none';
-      }
-    }
-  }, true);
-
-  // Handle external links
-  document.querySelectorAll('a[href^="http"], a[href^="mailto:"], a[href^="tel:"], a[href^="sms:"]')
-    .forEach(link => {
-      if (!link.hasAttribute('rel')) {
-        link.setAttribute('rel', 'noopener noreferrer');
-      }
-      if (link.hostname !== window.location.hostname && !link.hasAttribute('target')) {
-        link.setAttribute('target', '_blank');
-      }
+document.getElementById('backToTop').addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
+});
 
-  // Before/After slider
-  document.querySelectorAll('.before-after-slider').forEach(slider => {
-    const before = slider.querySelector('.before-img');
-    const after = slider.querySelector('.after-img');
-    const range = slider.querySelector('.slider-range');
-    if (before && after && range) {
-      range.addEventListener('input', function() {
-        after.style.clipPath = `inset(0 ${100 - this.value}% 0 0)`;
-      });
+// Info Card Handler
+document.addEventListener('DOMContentLoaded', function() {
+    const infoCard = document.getElementById('aboutPreviewCard');
+    
+    if (infoCard) {
+        infoCard.addEventListener('click', function(e) {
+            // Don't toggle if clicking on a link or button inside the card
+            if (e.target.closest('a, button:not(.card-toggle)')) {
+                return;
+            }
+            
+            this.classList.toggle('expanded');
+            
+            // Refresh AOS animations when card expands
+            setTimeout(() => {
+                AOS.refresh();
+            }, 500);
+        });
+
+        // Prevent card toggle when clicking links inside
+        infoCard.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', e => e.stopPropagation());
+        });
     }
-  });
+});
 
-  // Auto-play testimonial carousel
-  const testimonialCarousel = document.getElementById('testimonialCarousel');
-  if (testimonialCarousel) {
-    new bootstrap.Carousel(testimonialCarousel, { interval: 5000, ride: 'carousel' });
-  }
-
-  // Initialize AOS (Animate On Scroll) if present
-  if (window.AOS) {
-    AOS.init();
-  }
-
-  // Weather Widget (Open-Meteo API, no key needed)
-  const weatherContent = document.getElementById('weatherContent');
-  if (weatherContent) {
-    fetch('https://api.open-meteo.com/v1/forecast?latitude=55.8674&longitude=-4.1222&current_weather=true')
-      .then(res => res.json())
-      .then(data => {
-        const w = data.current_weather;
-        let desc = "Clear";
-        if (w.weathercode >= 2 && w.weathercode < 50) desc = "Cloudy";
-        if (w.weathercode >= 50 && w.weathercode < 70) desc = "Rain";
-        if (w.weathercode >= 70) desc = "Snow";
-        weatherContent.innerHTML = `
-          <div class="temp">${w.temperature}&deg;C</div>
-          <div class="desc">${desc}, Wind ${w.windspeed} km/h</div>
-        `;
-      })
-      .catch(() => {
-        weatherContent.innerHTML = `<div class="text-danger">Weather unavailable.</div>`;
-      });
-  }
-
-  // Price Calculator
-  document.getElementById('calculatorForm')?.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const service = document.getElementById('calcService').value;
-    const size = document.getElementById('calcSize').value;
-    let price = 0;
-    if (service === 'garden') price = { small: 25, medium: 40, large: 60 }[size];
-    if (service === 'window') price = { small: 20, medium: 30, large: 45 }[size];
-    if (service === 'pressure') price = { small: 30, medium: 50, large: 75 }[size];
-    document.getElementById('priceResult').textContent = `Estimated Price: £${price}`;
-  });
-
-  // Initialize map only once and when container is ready
-  const initMap = () => {
-    const mapContainer = document.getElementById('leafletMap');
-    if (!mapContainer || !window.L) {
-      // Show fallback if map can't load
-      document.getElementById('mapFallback')?.style.setProperty('display', 'block');
-      if (mapContainer) mapContainer.style.display = 'none';
-      return;
+// Enhanced Card UI Handlers
+class CardUI {
+    constructor(element) {
+        this.card = element;
+        this.header = element.querySelector('.card-header');
+        this.content = element.querySelector('.card-body');
+        this.icon = element.querySelector('.card-toggle i');
+        this.isOpen = false;
+        this.init();
     }
-    if (mapContainer._leaflet_id) return; // Prevent double init
 
-    const glasgowEast = [55.86739054658849, -4.122231786419321];
-    const map = L.map('leafletMap', {
-      scrollWheelZoom: false,
-      zoomControl: true,
-      dragging: !L.Browser.mobile
-    }).setView(glasgowEast, 13);
+    init() {
+        this.header.addEventListener('click', () => this.toggle());
+        this.addHoverEffect();
+    }
 
-    // Use classic OpenStreetMap tile layer
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-    // Service area circle (matches your SVG style)
-    L.circle(glasgowEast, {
-      color: '#198754',
-      fillColor: '#198754',
-      fillOpacity: 0.15,
-      radius: 2000,
-      weight: 3
-    }).addTo(map);
-
-    // Add marker with popup
-    L.marker(glasgowEast)
-      .bindPopup('We serve this area!<br>Get in touch today.')
-      .addTo(map);
-  };
-
-  const mapContainer = document.getElementById('leafletMap');
-  if (mapContainer && !mapContainer._leaflet_id) {
-    setTimeout(initMap, 200); // Delay to ensure container is visible
-  }
-
-  // Lazy Loading Images
-  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-  if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          img.classList.add('loaded');
-          observer.unobserve(img);
+    toggle() {
+        this.isOpen = !this.isOpen;
+        this.card.classList.toggle('expanded');
+        this.icon.style.transform = this.isOpen ? 'rotate(180deg)' : 'rotate(0)';
+        
+        if (this.isOpen) {
+            this.content.style.maxHeight = `${this.content.scrollHeight}px`;
+        } else {
+            this.content.style.maxHeight = '0';
         }
-      });
-    });
-    lazyImages.forEach(img => imageObserver.observe(img));
-  }
+
+        // Refresh AOS animations
+        setTimeout(() => AOS.refresh(), 300);
+    }
+
+    addHoverEffect() {
+        this.card.addEventListener('mouseenter', () => {
+            if (!this.isOpen) {
+                this.card.classList.add('hover');
+            }
+        });
+        
+        this.card.addEventListener('mouseleave', () => {
+            this.card.classList.remove('hover');
+        });
+    }
+}
+
+// Initialize Card UIs
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize existing code
+    // ...existing code...
+
+    // Initialize Card UI
+    const cards = document.querySelectorAll('.info-card');
+    cards.forEach(card => new CardUI(card));
 });
 
-// Remove any server-side or import/export code. All code above is static-compatible.
+// Loading Animation
+window.addEventListener('load', function() {
+    const loader = document.querySelector('.loading-overlay');
+    setTimeout(() => {
+        loader.style.opacity = '0';
+        setTimeout(() => loader.style.display = 'none', 300);
+    }, 500);
+});
+
+// Emergency Contact Popup
+function showEmergencyPopup() {
+    const now = new Date();
+    const hour = now.getHours();
+    
+    // Show popup outside business hours (before 8am or after 6pm)
+    if (hour < 8 || hour > 18) {
+        const popup = document.querySelector('.emergency-popup');
+        popup.classList.add('show');
+        
+        // Hide after 10 seconds
+        setTimeout(() => popup.classList.remove('show'), 10000);
+    }
+}
+
+// Initialize after DOM load
+document.addEventListener('DOMContentLoaded', function() {
+    // ...existing initialization code...
+    
+    // Initialize emergency popup
+    setTimeout(showEmergencyPopup, 3000);
+    
+    // Initialize service card flip
+    document.querySelectorAll('.service-card-flip').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.querySelector('.service-card-inner').style.transform = 'rotateY(180deg)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.querySelector('.service-card-inner').style.transform = 'rotateY(0)';
+        });
+    });
+});
+
+// Company Info Popup Handler
+const companyInfoBtn = document.querySelector('.company-info-btn');
+const infoPopup = document.querySelector('.company-info-popup');
+
+if (companyInfoBtn && infoPopup) {
+    companyInfoBtn.addEventListener('click', () => {
+        infoPopup.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+
+    infoPopup.querySelector('.close-popup').addEventListener('click', () => {
+        infoPopup.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+}
+
+// TikTok Gallery Handler
+const tiktokVideos = [
+    '7123456789012345678', // Replace with actual TikTok video IDs
+    '7123456789012345679',
+    '7123456789012345680'
+];
+
+function loadTikTokGallery() {
+    const gallery = document.querySelector('.tiktok-grid');
+    if (!gallery) return;
+
+    tiktokVideos.forEach(videoId => {
+        const embed = document.createElement('blockquote');
+        embed.className = 'tiktok-embed';
+        embed.setAttribute('cite', `https://www.tiktok.com/@aasyardmen/video/${videoId}`);
+        embed.setAttribute('data-video-id', videoId);
+        gallery.appendChild(embed);
+    });
+
+    // Load TikTok embed script
+    const script = document.createElement('script');
+    script.src = 'https://www.tiktok.com/embed.js';
+    document.body.appendChild(script);
+}
+
+// Gallery Filter System
+const filterButtons = document.querySelectorAll('.filter-btn');
+filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        filterGalleryItems(filter);
+        
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    });
+});
+
+// Initialize Masonry
+document.addEventListener('DOMContentLoaded', function() {
+    const masonryGrid = new Masonry('.gallery-grid', {
+        itemSelector: '.gallery-item',
+        percentPosition: true
+    });
+
+    // Load TikTok Videos
+    const tiktokVideos = [
+        { id: 'VIDEO_ID_1', title: 'Lawn Transformation' },
+        { id: 'VIDEO_ID_2', title: 'Garden Makeover' },
+        // Add more videos
+    ];
+
+    const galleryGrid = document.querySelector('.gallery-grid');
+    tiktokVideos.forEach(video => {
+        const template = `
+            <div class="gallery-item col-md-4 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@username/video/${video.id}">
+                        <section></section>
+                    </blockquote>
+                    <div class="card-body">
+                        <h5 class="card-title">${video.title}</h5>
+                    </div>
+                </div>
+            </div>
+        `;
+        galleryGrid.insertAdjacentHTML('beforeend', template);
+    });
+
+    // Load TikTok embed script
+    const script = document.createElement('script');
+    script.src = 'https://www.tiktok.com/embed.js';
+    document.body.appendChild(script);
+});
+
+// Enhanced Scroll to Top
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Bootstrap Tooltips
+const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+});
