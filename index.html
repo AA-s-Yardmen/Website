@@ -33,14 +33,9 @@
             border: none;
         }
         .btn-gradient:hover { background: linear-gradient(90deg,#38f9d7 0%,#43e97b 100%); color: #fff; }
-        .service-card {
-            transition: box-shadow .3s, transform .3s;
-            border: none;
-            border-radius: 1.5rem;
-            background: #fff;
-            box-shadow: 0 2px 24px rgba(46,125,50,0.08);
-        }
-        .service-card:hover { box-shadow: 0 8px 32px rgba(46,125,50,0.18)!important; transform: translateY(-8px);}
+        .feature-icon { width: 3rem; height: 3rem; }
+        .service-card, .team-card { transition: box-shadow .3s, transform .3s; border-radius: 1.5rem;}
+        .service-card:hover, .team-card:hover { box-shadow: 0 8px 32px rgba(46,125,50,0.18)!important; transform: translateY(-8px);}
         .service-icon {
             width: 64px; height: 64px;
             background: linear-gradient(135deg,#43e97b 0%,#38f9d7 100%);
@@ -51,45 +46,19 @@
             margin: 0 auto 1rem auto;
             box-shadow: 0 2px 12px rgba(46,125,50,0.10);
         }
-        .whatsapp-float { position:fixed;bottom:30px;right:30px;z-index:1050;width:60px;height:60px;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 4px 16px rgba(46,125,50,.2);}
-        .leaflet-container { border-radius: 1.5rem; box-shadow: 0 2px 24px rgba(46,125,50,0.08);}
-        .team-card { transition: box-shadow .3s, transform .3s; border-radius: 1.5rem;}
-        .team-card:hover { box-shadow: 0 8px 32px rgba(46,125,50,0.18)!important; transform: translateY(-8px);}
         .bg-glass {
             background: rgba(255,255,255,0.85);
             backdrop-filter: blur(6px);
             border-radius: 1.5rem;
             box-shadow: 0 8px 32px rgba(46,125,50,0.07);
         }
-        .animate__animated { --animate-duration: 1s; }
+        .whatsapp-float { position:fixed;bottom:30px;right:30px;z-index:1050;width:60px;height:60px;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 4px 16px rgba(46,125,50,.2);}
         .svg-wave { display: block; width: 100%; height: 60px; }
-        .section-divider { border:0; border-top:2px solid #e0e0e0; margin:0; }
-        .btn-quote { transition: background .2s, color .2s; }
-        .btn-quote:focus { outline: 2px solid #38f9d7; }
-        /* Timeline style for Company Profile */
-        .timeline li {
-            position: relative;
-            padding-left: 1.5rem;
-        }
-        .timeline li:before {
-            content: '';
-            position: absolute;
-            left: 0.5rem;
-            top: 0.5rem;
-            width: 8px;
-            height: 8px;
-            background: #43e97b;
-            border-radius: 50%;
-        }
-        .timeline li:not(:last-child):after {
-            content: '';
-            position: absolute;
-            left: 0.85rem;
-            top: 1.2rem;
-            width: 2px;
-            height: calc(100% - 1.2rem);
-            background: #d0f5e6;
-        }
+        .leaflet-container { border-radius: 1.5rem; box-shadow: 0 2px 24px rgba(46,125,50,0.08);}
+        .animate__animated { --animate-duration: 1s; }
+        .faq-accordion .accordion-button:not(.collapsed) { color: #2e7d32; background: #e8f5e9; }
+        .contact-card { background: #fff; border-radius: 1.5rem; box-shadow: 0 2px 24px rgba(46,125,50,0.08); padding: 2rem; }
+        .contact-link { font-size: 1.2rem; }
     </style>
 </head>
 <body>
@@ -106,9 +75,12 @@
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#coverage">Coverage</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
                     <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     <li class="nav-item">
                         <a href="https://wa.me/447516487733?text=Hey%2C%20I%20was%20wondering%20about%20a%20quote%20for%20garden%20maintenance" class="btn btn-gradient ms-lg-3 fw-bold shadow" target="_blank" rel="noopener">Get a Free Quote</a>
@@ -126,8 +98,8 @@
                 <div class="col-lg-6 text-center text-lg-start animate__animated animate__fadeInLeft">
                     <h1 class="display-4 fw-bold mb-3 gradient-text">Your Garden, Our Passion</h1>
                     <p class="lead mb-4">Glasgow's trusted team for garden maintenance, landscaping, and exterior cleaning. Reliable, friendly, and fully insured.</p>
-                    <a href="https://wa.me/447516487733?text=Hey%2C%20I%20was%20wondering%20about%20a%20quote%20for%20my%20garden" class="btn btn-gradient btn-lg me-2 mb-2 shadow" target="_blank" rel="noopener">Request a Quote</a>
-                    <a href="tel:+447516487733" class="btn btn-outline-success btn-lg mb-2 shadow">Call 07516 487733</a>
+                    <a href="#services" class="btn btn-gradient btn-lg me-2 mb-2 shadow">Our Services</a>
+                    <a href="#contact" class="btn btn-outline-success btn-lg mb-2 shadow">Contact Us</a>
                 </div>
                 <div class="col-lg-6 text-center animate__animated animate__fadeInRight">
                     <img src="https://www.crowdfunder.co.uk/uploads/projects/1556370.jpg?1705014365" alt="AA's Yardmen at work" class="img-fluid rounded shadow-lg">
@@ -137,52 +109,64 @@
         <svg class="svg-wave" viewBox="0 0 1440 60"><path fill="#e8f5e9" fill-opacity="1" d="M0,32L1440,0L1440,60L0,60Z"></path></svg>
     </header>
 
-    <!-- About/Story Section -->
-    <section id="about" class="py-5 bg-white animate__animated animate__fadeInUp">
+    <!-- Features Section -->
+    <section class="py-5 bg-white border-bottom animate__animated animate__fadeInUp">
         <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6 animate__animated animate__fadeInLeft">
-                    <div class="card border-0 shadow-lg bg-glass p-4 h-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="bg-success bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center me-3" style="width:56px;height:56px;">
-                                    <i class="fas fa-seedling fa-2x text-success"></i>
-                                </div>
-                                <div>
-                                    <h3 class="fw-bold mb-0 text-success">Our Story</h3>
-                                    <div class="small text-muted">Rooted in Glasgow, Growing with You</div>
-                                </div>
-                            </div>
-                            <blockquote class="blockquote border-0 ps-2 mb-4">
-                                <p class="mb-2 fst-italic text-secondary">"AA’s Yardmen began with a simple promise: treat every garden as if it’s our own. We’re not just a business—we’re your neighbours, and we believe in honest work, fair prices, and a greener Glasgow for all."</p>
-                                <footer class="blockquote-footer mt-2">Alan Parsons, Founder</footer>
-                            </blockquote>
-                            <ul class="list-unstyled mb-0">
-                                <li><i class="fas fa-user-tie text-success me-2"></i><strong>Director:</strong> Alan James Parsons</li>
-                                <li><i class="fas fa-map-marker-alt text-success me-2"></i><strong>Based:</strong> East End, Glasgow</li>
-                                <li><i class="fas fa-leaf text-success me-2"></i><strong>Eco-friendly, local, and proud</strong></li>
-                            </ul>
+            <div class="row text-center g-4">
+                <div class="col-md-4">
+                    <div class="p-4 bg-glass">
+                        <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3 feature-icon">
+                            <i class="fas fa-user-shield fa-2x text-success"></i>
                         </div>
+                        <h5 class="fw-bold">Fully Insured</h5>
+                        <p class="mb-0">Peace of mind with every job, big or small.</p>
                     </div>
                 </div>
-                <div class="col-lg-6 animate__animated animate__fadeInRight">
-                    <div class="ps-lg-4">
-                        <h5 class="fw-bold text-success mb-3">Why Choose Us?</h5>
-                        <ul class="list-unstyled fs-5 mb-4">
-                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Personal, friendly service—no call centres, just real people</li>
-                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Community-focused: supporting local jobs and green spaces</li>
-                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Transparent pricing, no hidden fees</li>
-                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>We listen, we care, and we deliver</li>
-                        </ul>
-                        <div class="text-muted small">"From first call to final sweep, we want you to feel proud of your outdoor space."</div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-glass">
+                        <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3 feature-icon">
+                            <i class="fas fa-clock fa-2x text-success"></i>
+                        </div>
+                        <h5 class="fw-bold">Flexible Scheduling</h5>
+                        <p class="mb-0">We work around your needs, including weekends.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-glass">
+                        <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3 feature-icon">
+                            <i class="fas fa-star fa-2x text-success"></i>
+                        </div>
+                        <h5 class="fw-bold">5-Star Rated</h5>
+                        <p class="mb-0">Trusted by homeowners and businesses across Glasgow.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light animate__animated animate__fadeInUp">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <img src="https://www.crowdfunder.co.uk/uploads/projects/1556370.jpg?1705014365" alt="Alan Parsons - Founder" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="fw-bold text-success mb-3">About AA's Yardmen</h2>
+                    <p class="lead">Founded by Alan Parsons in 2023, AA's Yardmen Ltd is a local, fully insured business dedicated to making Glasgow greener and cleaner. We believe in honest work, fair prices, and building lasting relationships with our clients.</p>
+                    <ul class="list-unstyled mb-4">
+                        <li><i class="fas fa-check-circle text-success me-2"></i> Fully insured & uniformed team</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i> Modern equipment & eco-friendly practices</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i> 5-star customer reviews</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline-success btn-lg">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
-    <section id="services" class="py-5 bg-light animate__animated animate__fadeInUp">
+    <section id="services" class="py-5 bg-white animate__animated animate__fadeInUp">
         <div class="container">
             <h2 class="text-center mb-5 fw-bold text-success">Our Services</h2>
             <div class="row g-4">
@@ -196,7 +180,7 @@
                             <li>Seasonal clean-ups</li>
                             <li>Weed control</li>
                         </ul>
-                        <button class="btn btn-quote btn-gradient w-100" data-service="garden maintenance">WhatsApp Quote</button>
+                        <a href="https://wa.me/447516487733?text=Hey%2C%20I%20was%20wondering%20about%20a%20quote%20on%20garden%20maintenance" class="btn btn-gradient w-100" target="_blank">WhatsApp Quote</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -208,7 +192,7 @@
                             <li>Walls & paths</li>
                             <li>Decking & stonework</li>
                         </ul>
-                        <button class="btn btn-quote btn-gradient w-100" data-service="jet washing">WhatsApp Quote</button>
+                        <a href="https://wa.me/447516487733?text=Hey%2C%20I%20was%20wondering%20about%20a%20quote%20on%20jet%20washing" class="btn btn-gradient w-100" target="_blank">WhatsApp Quote</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -220,7 +204,7 @@
                             <li>Commercial & public spaces</li>
                             <li>Fast response</li>
                         </ul>
-                        <button class="btn btn-quote btn-gradient w-100" data-service="graffiti removal">WhatsApp Quote</button>
+                        <a href="https://wa.me/447516487733?text=Hey%2C%20I%20was%20wondering%20about%20a%20quote%20on%20graffiti%20removal" class="btn btn-gradient w-100" target="_blank">WhatsApp Quote</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -232,15 +216,15 @@
                             <li>Regular visits</li>
                             <li>Tailored packages</li>
                         </ul>
-                        <button class="btn btn-quote btn-gradient w-100" data-service="custom contract">WhatsApp Quote</button>
+                        <a href="https://wa.me/447516487733?text=Hey%2C%20I%20was%20wondering%20about%20a%20quote%20on%20custom%20contract" class="btn btn-gradient w-100" target="_blank">WhatsApp Quote</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Service Area Map (Coverage) -->
-    <section class="py-5 bg-light animate__animated animate__fadeInUp">
+    <!-- Coverage/Map Section -->
+    <section id="coverage" class="py-5 bg-light animate__animated animate__fadeInUp">
         <div class="container">
             <h2 class="text-center mb-5 fw-bold text-success">Our Coverage: Easterhouse & Beyond</h2>
             <div class="row justify-content-center">
@@ -254,8 +238,53 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section id="faq" class="py-5 bg-white border-top animate__animated animate__fadeInUp">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold text-success">Frequently Asked Questions</h2>
+            <div class="accordion faq-accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqHeading1">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true">
+                            Do you offer regular maintenance plans?
+                        </button>
+                    </h2>
+                    <div id="faqCollapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes! We offer weekly, fortnightly, and monthly plans to keep your garden looking its best.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqHeading2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2">
+                            Are you insured and DBS checked?
+                        </button>
+                    </h2>
+                    <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Absolutely. Our team is fully insured and background-checked for your peace of mind.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqHeading3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3">
+                            Can I get a quote online?
+                        </button>
+                    </h2>
+                    <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, just WhatsApp us or use the contact options below for a free, no-obligation quote.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Section -->
-    <section class="py-5 bg-white animate__animated animate__fadeInUp">
+    <section id="testimonials" class="py-5 bg-white animate__animated animate__fadeInUp">
         <div class="container">
             <h2 class="text-center mb-5 fw-bold text-success">What Our Clients Say</h2>
             <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -315,110 +344,49 @@
         </div>
     </section>
 
-    <!-- Connect With Us Section -->
-    <section class="py-5 bg-white border-top animate__animated animate__fadeInUp">
+    <!-- Weather Widget (Scotland-wide) -->
+    <section class="py-5 bg-light border-top animate__animated animate__fadeInUp">
         <div class="container">
-            <h2 class="text-center mb-4 fw-bold text-success">Connect With Us</h2>
+            <h2 class="text-center mb-4 fw-bold text-success">Today's Weather in Scotland</h2>
             <div class="row justify-content-center g-4">
-                <div class="col-auto">
-                    <a href="https://www.facebook.com/aasyardmen" class="btn btn-outline-primary btn-lg" target="_blank" rel="noopener">
-                        <i class="fab fa-facebook-f me-2"></i>Facebook
-                    </a>
-                </div>
-                <div class="col-auto">
-                    <a href="https://www.yell.com/biz/aa-s-yardmen-ltd-glasgow-10750213/" class="btn btn-outline-warning btn-lg" target="_blank" rel="noopener">
-                        <i class="fas fa-star me-2"></i>Yell
-                    </a>
-                </div>
-                <div class="col-auto">
-                    <a href="https://www.crowdfunder.co.uk/p/aas-yardmen-ltd" class="btn btn-outline-info btn-lg" target="_blank" rel="noopener">
-                        <i class="fas fa-seedling me-2"></i>Crowdfunder
-                    </a>
-                </div>
-                <div class="col-auto">
-                    <a href="https://find-and-update.company-information.service.gov.uk/company/SC755769" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener">
-                        <i class="fas fa-building me-2"></i>Companies House
-                    </a>
-                </div>
-                <div class="col-auto">
-                    <a href="https://www.linkedin.com/in/alan-parsons-glasgow/" class="btn btn-outline-secondary btn-lg" target="_blank" rel="noopener">
-                        <i class="fab fa-linkedin me-2"></i>Alan Parsons (Director)
-                    </a>
-                </div>
-                <div class="col-auto">
-                    <a href="mailto:info@aasyardmen.co.uk" class="btn btn-outline-success btn-lg">
-                        <i class="fas fa-envelope me-2"></i>Email
-                    </a>
-                </div>
-                <div class="col-auto">
-                    <a href="https://wa.me/447516487733" class="btn btn-outline-success btn-lg" target="_blank" rel="noopener">
-                        <i class="fab fa-whatsapp me-2"></i>WhatsApp
-                    </a>
-                </div>
-            </div>
-            <div class="text-center mt-4">
-                <small class="text-muted">
-                    Reviews and endorsements can be found on <a href="https://www.yell.com/biz/aa-s-yardmen-ltd-glasgow-10750213/" target="_blank" rel="noopener">Yell.com</a> and our <a href="https://www.facebook.com/aasyardmen" target="_blank" rel="noopener">Facebook page</a>.<br>
-                    No official Instagram, Twitter/X, Trustpilot, Nextdoor, or Yelp profiles.
-                </small>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-success text-white animate__animated animate__fadeInUp">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6">
-                    <h2 class="fw-bold mb-3">Get in Touch</h2>
-                    <p class="mb-4">Ready for a quote or have a question? Call us, WhatsApp us, or use the form and we'll get back to you promptly.</p>
-                    <ul class="list-unstyled mb-4">
-                        <li><i class="fas fa-phone-alt me-2"></i> <a href="tel:+447516487733" class="text-white text-decoration-underline">07516 487733</a></li>
-                        <li><i class="fab fa-whatsapp me-2"></i> <a href="https://wa.me/447516487733" class="text-white text-decoration-underline">WhatsApp Chat</a></li>
-                        <li><i class="fas fa-envelope me-2"></i> <a href="mailto:info@aasyardmen.co.uk" class="text-white text-decoration-underline">info@aasyardmen.co.uk</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-6">
-                    <form class="bg-white rounded shadow p-4" style="color:#333;" action="https://formspree.io/f/your-form-id" method="POST">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Your Name</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
+                <div class="col-md-4 mb-3">
+                    <div class="bg-white rounded shadow p-4 text-center">
+                        <h5 class="fw-bold mb-2">Glasgow</h5>
+                        <div id="weather-glasgow-loading">Fetching...</div>
+                        <div id="weather-glasgow-content" style="display:none;">
+                            <div class="display-6 mb-2" id="weather-glasgow-temp"></div>
+                            <div id="weather-glasgow-desc" class="mb-2"></div>
+                            <div id="weather-glasgow-extra" class="small text-muted"></div>
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Your Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="bg-white rounded shadow p-4 text-center">
+                        <h5 class="fw-bold mb-2">Edinburgh</h5>
+                        <div id="weather-edinburgh-loading">Fetching...</div>
+                        <div id="weather-edinburgh-content" style="display:none;">
+                            <div class="display-6 mb-2" id="weather-edinburgh-temp"></div>
+                            <div id="weather-edinburgh-desc" class="mb-2"></div>
+                            <div id="weather-edinburgh-extra" class="small text-muted"></div>
                         </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="bg-white rounded shadow p-4 text-center">
+                        <h5 class="fw-bold mb-2">Aberdeen</h5>
+                        <div id="weather-aberdeen-loading">Fetching...</div>
+                        <div id="weather-aberdeen-content" style="display:none;">
+                            <div class="display-6 mb-2" id="weather-aberdeen-temp"></div>
+                            <div id="weather-aberdeen-desc" class="mb-2"></div>
+                            <div id="weather-aberdeen-extra" class="small text-muted"></div>
                         </div>
-                        <button type="submit" class="btn btn-gradient w-100">Send Message</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter Signup (Mailchimp Example) -->
-    <section class="py-5 bg-success text-white border-top animate__animated animate__fadeInUp">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <h2 class="fw-bold mb-3 text-center">Subscribe for Garden Tips & Offers</h2>
-                    <form action="https://YOUR_MAILCHIMP_URL" method="post" target="_blank" class="row g-2 justify-content-center">
-                        <div class="col-8 col-md-6">
-                            <input type="email" name="EMAIL" class="form-control form-control-lg" placeholder="Your email address" required>
-                        </div>
-                        <div class="col-4 col-md-3">
-                            <button type="submit" class="btn btn-warning btn-lg w-100">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Animated Counters (CodePen Style) -->
+    <!-- Animated Counters -->
     <section class="py-5 bg-white border-top animate__animated animate__fadeInUp">
         <div class="container">
             <div class="row text-center g-4">
@@ -443,7 +411,6 @@
             </div>
         </div>
         <script>
-            // Simple animated counter (CodePen style)
             document.addEventListener('DOMContentLoaded', function() {
                 document.querySelectorAll('.counter').forEach(function(counter) {
                     let count = +counter.getAttribute('data-count');
@@ -464,62 +431,29 @@
         </script>
     </section>
 
-    <!-- Weather Widget (Open-Meteo Example) -->
-    <section class="py-5 bg-light border-top animate__animated animate__fadeInUp">
+    <!-- Contact Section (moved below projects and weather) -->
+    <section id="contact" class="py-5 bg-success text-white animate__animated animate__fadeInUp">
         <div class="container">
-            <h2 class="text-center mb-4 fw-bold text-success">Today's Weather in Glasgow</h2>
-            <div class="d-flex justify-content-center">
-                <iframe src="https://widget.open-meteo.com/?latitude=55.8642&longitude=-4.2518&hourly=temperature_2m,precipitation_probability,weathercode&theme=light" style="border:0;width:350px;height:200px;" loading="lazy"></iframe>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-card text-center">
+                        <h2 class="fw-bold mb-3 text-success">Contact AA's Yardmen</h2>
+                        <p class="mb-4">We're here to help! Reach out for a quote, advice, or to book a service.</p>
+                        <div class="mb-3">
+                            <a href="tel:+447516487733" class="contact-link d-block mb-2 text-success"><i class="fas fa-phone-alt me-2"></i>07516 487733</a>
+                            <a href="mailto:info@aasyardmen.co.uk" class="contact-link d-block mb-2 text-success"><i class="fas fa-envelope me-2"></i>info@aasyardmen.co.uk</a>
+                            <a href="https://wa.me/447516487733" class="contact-link d-block mb-2 text-success" target="_blank"><i class="fab fa-whatsapp me-2"></i>WhatsApp Chat</a>
+                        </div>
+                        <div class="mt-3">
+                            <a href="https://www.facebook.com/aasyardmen" class="btn btn-outline-primary btn-lg me-2" target="_blank"><i class="fab fa-facebook-f me-2"></i>Facebook</a>
+                            <a href="https://www.yell.com/biz/aa-s-yardmen-ltd-glasgow-10750213/" class="btn btn-outline-warning btn-lg me-2" target="_blank"><i class="fas fa-star me-2"></i>Yell</a>
+                            <a href="https://www.crowdfunder.co.uk/p/aas-yardmen-ltd" class="btn btn-outline-info btn-lg me-2" target="_blank"><i class="fas fa-seedling me-2"></i>Crowdfunder</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Instagram Feed (SnapWidget Example) -->
-    <section class="py-5 bg-white border-top animate__animated animate__fadeInUp">
-        <div class="container">
-            <h2 class="text-center mb-4 fw-bold text-success">See Our Latest on Instagram</h2>
-            <div class="d-flex justify-content-center">
-                <iframe src="https://snapwidget.com/embed/123456" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; max-width:600px; height:300px"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Google Reviews Widget (Elfsight Example) -->
-    <section class="py-5 bg-light border-top animate__animated animate__fadeInUp">
-        <div class="container">
-            <h2 class="text-center mb-4 fw-bold text-success">Our Google Reviews</h2>
-            <div class="d-flex justify-content-center">
-                <div id="elfsight-widget"></div>
-            </div>
-        </div>
-        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-        <script>
-            // Replace with your Elfsight widget ID if you have one
-            setTimeout(function(){
-                var el = document.createElement('div');
-                el.className = "elfsight-app-12345678-aaaa-bbbb-cccc-1234567890ab";
-                document.getElementById('elfsight-widget').appendChild(el);
-            }, 500);
-        </script>
-    </section>
-
-    <!-- Live Chat Widget (Tawk.to Example) -->
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/64e6e5e094cf5d49dc6b7b7b/1h8g9gq7g';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-
-    <!-- Back to Top Button -->
-    <button type="button" class="btn btn-success rounded-circle position-fixed" style="bottom:90px;right:30px;z-index:1050;width:50px;height:50px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;display:none;" id="backToTopBtn" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4">
@@ -549,16 +483,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // WhatsApp Quote Button Handler
-        document.querySelectorAll('.btn-quote').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const service = encodeURIComponent(this.getAttribute('data-service'));
-                const msg = encodeURIComponent(`Hey, I was wondering about a quote on "${service}"`);
-                window.open(`https://wa.me/447516487733?text=${msg}`, '_blank');
-            });
-        });
-
-        // Easterhouse Map (Leaflet) with Circle
+        // Coverage Map
         document.addEventListener('DOMContentLoaded', function() {
             if(document.getElementById('map')) {
                 var map = L.map('map').setView([55.868, -4.112], 13);
@@ -568,7 +493,6 @@
                 L.marker([55.868, -4.112]).addTo(map)
                     .bindPopup('Easterhouse, Glasgow<br>We cover this area and beyond!')
                     .openPopup();
-                // Draw a 2km radius circle around Easterhouse
                 L.circle([55.868, -4.112], {
                     color: '#43e97b',
                     fillColor: '#43e97b',
@@ -578,20 +502,43 @@
             }
         });
 
-        // Simple contact form handler (demo only)
-        document.querySelector('form')?.addEventListener('submit', function(e){
-            e.preventDefault();
-            alert('Thank you for contacting AA\'s Yardmen! We will get back to you soon.');
-            this.reset();
+        // Weather Widget for Glasgow, Edinburgh, Aberdeen (Open-Meteo API)
+        function fetchWeather(city, lat, lon) {
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.current_weather) {
+                        document.getElementById(`weather-${city}-loading`).style.display = 'none';
+                        document.getElementById(`weather-${city}-content`).style.display = '';
+                        document.getElementById(`weather-${city}-temp`).textContent = Math.round(data.current_weather.temperature) + "°C";
+                        document.getElementById(`weather-${city}-desc`).textContent = weatherCodeToDesc(data.current_weather.weathercode);
+                        document.getElementById(`weather-${city}-extra`).textContent = "Wind: " + Math.round(data.current_weather.windspeed) + " km/h";
+                    } else {
+                        document.getElementById(`weather-${city}-loading`).textContent = "Weather unavailable.";
+                    }
+                })
+                .catch(() => {
+                    document.getElementById(`weather-${city}-loading`).textContent = "Weather unavailable.";
+                });
+        }
+        function weatherCodeToDesc(code) {
+            const map = {
+                0: "Clear sky", 1: "Mainly clear", 2: "Partly cloudy", 3: "Overcast",
+                45: "Fog", 48: "Depositing rime fog", 51: "Light drizzle", 53: "Drizzle",
+                55: "Dense drizzle", 61: "Light rain", 63: "Rain", 65: "Heavy rain",
+                71: "Light snow", 73: "Snow", 75: "Heavy snow", 80: "Rain showers",
+                81: "Heavy showers", 82: "Violent showers", 95: "Thunderstorm"
+            };
+            return map[code] || "Weather";
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchWeather('glasgow', 55.8642, -4.2518);
+            fetchWeather('edinburgh', 55.9533, -3.1883);
+            fetchWeather('aberdeen', 57.1497, -2.0943);
         });
-        // Back to Top Button
-        const backToTopBtn = document.getElementById('backToTopBtn');
-        window.addEventListener('scroll', () => {
-            if(window.scrollY > 300) backToTopBtn.style.display = 'flex';
-            else backToTopBtn.style.display = 'none';
-        });
-        backToTopBtn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
-        // Animated counters
+
+        // Animated Counters
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.counter').forEach(function(counter) {
                 let count = +counter.getAttribute('data-count');
@@ -609,41 +556,9 @@
                 update();
             });
         });
-    </script>
 
-    <!-- IDEAS FOR FURTHER ENHANCEMENTS (not implemented, just for your roadmap) -->
-    <!--
-    1. Add a "Book Online" modal with a calendar and time slots.
-    2. Add a "Frequently Asked Questions" accordion with more questions.
-    3. Add a "Meet the Team" section with real photos and bios.
-    4. Add a "Before & After" slider for project transformations.
-    5. Add a "Sustainability" badge and a page about your eco practices.
-    6. Add a "Live Availability" widget (e.g. Calendly).
-    7. Add a "Download our Brochure" button.
-    8. Add a "Photo of the Month" or "Client of the Month" spotlight.
-    9. Add a "Partners & Certifications" logo strip.
-    10. Add a "Back to Top" floating button (already present, but could animate).
-    11. Add a "Service Area" interactive map with postcode search.
-    12. Add a "Refer a Friend" form with rewards.
-    13. Add a "Blog" or "Tips" section for SEO and engagement.
-    14. Add a "Google Maps" embed for your office location.
-    15. Add a "Push Notifications" opt-in for offers.
-    16. Add a "Cookie Consent" banner.
-    17. Add a "Accessibility" quick settings (font size, contrast).
-    18. Add a "Progressive Web App" install prompt.
-    19. Add a "Service Comparison" table.
-    20. Add a "Pricing" or "Packages" section.
-    21. Add a "Careers" or "Join Our Team" page.
-    22. Add a "Press & Media" mentions section.
-    23. Add a "Awards & Memberships" section.
-    24. Add a "WhatsApp Chatbot" for instant answers.
-    25. Add a "Testimonials" video carousel.
-    26. Add a "Newsletter Archive" page.
-    27. Add a "404" page with search and suggestions.
-    28. Add a "Maintenance Mode" page for updates.
-    29. Add a "Service Alerts" banner for weather or delays.
-    30. Add a "Dynamic Opening Hours" widget.
-    ...and hundreds more.
-    -->
+        // Back to Top Button (optional, if you want to add one)
+        // ...existing code if you want to keep the button...
+    </script>
 </body>
 </html>
