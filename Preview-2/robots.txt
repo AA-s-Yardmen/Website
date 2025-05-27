@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aasyardmen.co.uk/sitemap.xml

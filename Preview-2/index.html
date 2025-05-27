@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AA’s Yardmen | Glasgow Garden & Exterior Cleaning Services</title>
+  <meta name="description" content="Lawn care, pressure washing, and garden tidy-ups in Glasgow. Fully insured and locally trusted.">
+  <meta property="og:title" content="AA’s Yardmen | Glasgow Garden & Exterior Cleaning Services">
+  <meta property="og:description" content="Lawn care, pressure washing, and garden tidy-ups in Glasgow. Fully insured and locally trusted.">
+  <meta property="og:image" content="https://aasyardmen.co.uk/assets/og-image.jpg">
+  <meta property="og:url" content="https://aasyardmen.co.uk/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AA’s Yardmen | Glasgow Garden & Exterior Cleaning Services">
+  <meta name="twitter:description" content="Lawn care, pressure washing, and garden tidy-ups in Glasgow. Fully insured and locally trusted.">
+  <meta name="twitter:image" content="https://aasyardmen.co.uk/assets/og-image.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/7b7e3e5d7d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    .lightbox-bg { background: rgba(0,0,0,0.85); }
+    .faq-answer { display: none; }
+    .faq-open .faq-answer { display: block; }
+    .faq-open .faq-q { color: #15803d; }
+    /* Custom keyframes for floating and fade-in-up */
+    @keyframes float {
+      0% { transform: translateY(0);}
+      50% { transform: translateY(-16px);}
+      100% { transform: translateY(0);}
+    }
+    .animate-float {
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+    .animate-fadeInUp {
+      animation: fadeInUp 1s cubic-bezier(0.4,0,0.2,1) both;
+    }
+    .animate-delay-1 { animation-delay: .2s; }
+    .animate-delay-2 { animation-delay: .4s; }
+    .animate-delay-3 { animation-delay: .6s; }
+    .animate-delay-4 { animation-delay: .8s; }
+    .animate-delay-5 { animation-delay: 1s; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-30 bg-white/90 shadow backdrop-blur animate__animated animate__fadeInDown">
+    <nav class="container mx-auto flex items-center justify-between px-4 py-3">
+      <div class="flex items-center gap-2">
+        <span class="inline-block bg-green-600 rounded-full w-9 h-9 flex items-center justify-center text-white text-2xl font-bold">A</span>
+        <span class="font-bold text-lg tracking-tight">AA’s Yardmen Ltd</span>
+      </div>
+      <button id="nav-toggle" class="lg:hidden text-2xl text-green-700" aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul id="nav-menu" class="hidden lg:flex gap-6 font-semibold text-base">
+        <li><a href="#home" class="hover:text-green-700 transition">Home</a></li>
+        <li><a href="#services" class="hover:text-green-700 transition">Services</a></li>
+        <li><a href="#gallery" class="hover:text-green-700 transition">Gallery</a></li>
+        <li><a href="#about" class="hover:text-green-700 transition">About</a></li>
+        <li><a href="#contact" class="hover:text-green-700 transition">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-gray-200">
+      <ul class="flex flex-col gap-2 px-6 py-4 font-semibold text-base">
+        <li><a href="#home" class="block py-2 hover:text-green-700">Home</a></li>
+        <li><a href="#services" class="block py-2 hover:text-green-700">Services</a></li>
+        <li><a href="#gallery" class="block py-2 hover:text-green-700">Gallery</a></li>
+        <li><a href="#about" class="block py-2 hover:text-green-700">About</a></li>
+        <li><a href="#contact" class="block py-2 hover:text-green-700">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative min-h-[70vh] flex items-center justify-center bg-cover bg-center animate__animated animate__fadeIn">
+    <div class="absolute inset-0 bg-gradient-to-b from-green-900/60 via-green-700/30 to-green-900/60"></div>
+    <div class="relative z-10 container mx-auto px-4 py-20 flex flex-col items-center text-center">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 drop-shadow-lg animate__animated animate__fadeInDown">Glasgow’s Trusted Garden & Exterior Cleaning Experts</h1>
+      <p class="text-lg md:text-xl text-white/90 mb-6 font-medium animate__animated animate__fadeInUp animate__delay-1s">Fully Insured &middot; Fast Response &middot; <span class="inline-flex items-center"><i class="fas fa-star text-yellow-400 mr-1"></i>5★ Reviews</span></p>
+      <a href="#contact" class="inline-block px-8 py-3 rounded-full bg-green-600 hover:bg-green-700 text-white font-semibold text-lg shadow-lg transition focus:outline-none focus:ring-2 focus:ring-green-400 animate__animated animate__pulse animate__delay-2s animate__infinite" aria-label="Get a Free Quote">Get a Free Quote</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="container mx-auto px-4 py-16 animate-fadeInUp">
+    <div class="flex flex-col md:flex-row items-center gap-10">
+      <div class="md:w-1/2 w-full mb-8 md:mb-0 animate__animated animate__fadeInLeft">
+        <img
+          src="https://i.ibb.co/Xv7nsMD/att-hl-TQ0zk9nj-HQ5-B-l8l6-Qs-rw-Thb-Vu-Ra-PWQp2lix-9-Hg-png.jpg1705014365"
+          alt="AA’s Yardmen at work"
+          class="rounded-2xl shadow-lg w-full object-cover object-center animate-float"
+          style="height: 45vw; max-height: 400px; min-height: 180px;"
+        >
+      </div>
+      <div class="md:w-1/2 w-full animate__animated animate__fadeInRight">
+        <h2 class="text-2xl md:text-3xl font-bold text-green-700 mb-4">About AA’s Yardmen Ltd</h2>
+        <p class="mb-4 text-lg">AA’s Yardmen Ltd is a fully insured, local business serving Glasgow with pride. We offer professional garden maintenance and exterior cleaning, always with a friendly, reliable approach. Our team is committed to quality, safety, and customer satisfaction.</p>
+        <ul class="mb-4 space-y-2">
+          <li class="flex items-center"><i class="fas fa-check-circle text-green-600 mr-2"></i> Registered Company No: <span class="font-semibold ml-1">SC755769</span></li>
+          <li class="flex items-center"><i class="fas fa-map-marker-alt text-green-600 mr-2"></i> 272 Bath Street, Glasgow</li>
+          <li class="flex items-center"><i class="fas fa-shield-alt text-green-600 mr-2"></i> Fully Insured & Vetted</li>
+        </ul>
+        <p class="text-gray-700">We believe in honest work, fair pricing, and building lasting relationships with our clients.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="bg-white py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-green-700 text-center mb-10 animate__animated animate__fadeInDown">Our Services</h2>
+      <div class="grid gap-8 md:grid-cols-3 lg:grid-cols-5">
+        <div class="bg-gray-50 rounded-xl shadow hover:shadow-lg transition p-6 flex flex-col items-center text-center animate-fadeInUp animate-delay-1">
+          <div class="text-green-600 text-4xl mb-3 animate__animated animate__bounceIn"><i class="fas fa-grass"></i></div>
+          <h3 class="font-semibold text-lg mb-2">Lawn Cutting</h3>
+          <p class="text-gray-600 text-sm">Regular mowing, edging, and lawn care for a healthy, neat garden.</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl shadow hover:shadow-lg transition p-6 flex flex-col items-center text-center animate-fadeInUp animate-delay-2">
+          <div class="text-green-600 text-4xl mb-3 animate__animated animate__bounceIn"><i class="fas fa-tree"></i></div>
+          <h3 class="font-semibold text-lg mb-2">Hedge Trimming</h3>
+          <p class="text-gray-600 text-sm">Expert hedge shaping and pruning for tidy, beautiful boundaries.</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl shadow hover:shadow-lg transition p-6 flex flex-col items-center text-center animate-fadeInUp animate-delay-3">
+          <div class="text-green-600 text-4xl mb-3 animate__animated animate__bounceIn"><i class="fas fa-water"></i></div>
+          <h3 class="font-semibold text-lg mb-2">Pressure Washing</h3>
+          <p class="text-gray-600 text-sm">Driveways, patios, and paths cleaned with professional equipment.</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl shadow hover:shadow-lg transition p-6 flex flex-col items-center text-center animate-fadeInUp animate-delay-4">
+          <div class="text-green-600 text-4xl mb-3 animate__animated animate__bounceIn"><i class="fas fa-cloud-showers-heavy"></i></div>
+          <h3 class="font-semibold text-lg mb-2">Gutter Cleaning</h3>
+          <p class="text-gray-600 text-sm">Safe, thorough removal of debris to prevent water damage.</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl shadow hover:shadow-lg transition p-6 flex flex-col items-center text-center animate-fadeInUp animate-delay-5">
+          <div class="text-green-600 text-4xl mb-3 animate__animated animate__bounceIn"><i class="fas fa-broom"></i></div>
+          <h3 class="font-semibold text-lg mb-2">General Tidy-ups</h3>
+          <p class="text-gray-600 text-sm">Weeding, leaf clearance, and seasonal garden clean-ups.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-green-700 text-center mb-10 animate__animated animate__fadeInDown">Project Gallery</h2>
+      <div class="flex flex-col items-center">
+        <div id="gallery-tiktok-card" class="flex flex-col items-center bg-white rounded-xl shadow p-4 animate-fadeInUp transition w-full max-w-md mx-auto">
+          <div class="relative w-full aspect-[9/16] max-w-[350px] mx-auto overflow-hidden rounded-lg mb-4">
+            <img id="gallery-tiktok-thumb" src="https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/6b8e2b7e7e2e4e7e8e2e2e2e2e2e2e2e_1689000000?x-expires=4750000000&x-signature=placeholder" alt="moss removal on this roof" class="w-full h-full object-cover object-center" style="background:#eee;">
+            <span class="absolute inset-0 flex items-center justify-center text-white text-5xl bg-black/30 pointer-events-none" id="gallery-tiktok-play">
+              <i class="fas fa-play-circle"></i>
+            </span>
+          </div>
+          <div id="gallery-tiktok-title" class="text-center font-semibold mb-3">moss removal on this roof</div>
+          <a id="gallery-tiktok-link" href="https://www.tiktok.com/@aas.yardmen/video/7503601697894288662" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2 rounded-full bg-green-600 hover:bg-green-700 text-white font-semibold shadow transition text-base mb-4">
+            <i class="fab fa-tiktok mr-2"></i>Watch on TikTok
+          </a>
+          <div class="flex gap-4 justify-center">
+            <button id="gallery-tiktok-prev" class="px-4 py-2 rounded-full bg-gray-200 hover:bg-green-100 text-green-700 font-bold text-base transition" aria-label="Previous video">
+              <i class="fas fa-chevron-left mr-2"></i>Previous
+            </button>
+            <button id="gallery-tiktok-next" class="px-4 py-2 rounded-full bg-gray-200 hover:bg-green-100 text-green-700 font-bold text-base transition" aria-label="Next video">
+              Next<i class="fas fa-chevron-right ml-2"></i>
+            </button>
+          </div>
+        </div>
+        <div class="text-center mt-8">
+          <a href="https://www.tiktok.com/@aas.yardmen" target="_blank" rel="noopener" class="inline-flex items-center px-6 py-3 rounded-full bg-green-600 hover:bg-green-700 text-white font-semibold shadow transition text-lg">
+            <i class="fab fa-tiktok mr-2"></i>See More on TikTok
+          </a>
+        </div>
+      </div>
+    </div>
+    <script>
+      // TikTok Gallery Carousel
+      const tiktokVideos = [
+        {
+          id: "7503601697894288662",
+          title: "moss removal on this roof",
+          thumb: "https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/6b8e2b7e7e2e4e7e8e2e2e2e2e2e2e2e_1689000000?x-expires=4750000000&x-signature=placeholder"
+        },
+        {
+          id: "7485863413206273302",
+          title: "huge one we completed this afternoon on a maintenance cut.",
+          thumb: "https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/6b8e2b7e7e2e4e7e8e2e2e2e2e2e2e2e_1689000001?x-expires=4750000000&x-signature=placeholder"
+        },
+        {
+          id: "7501008582348049687",
+          title: "monoblock pressure washing.",
+          thumb: "https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/6b8e2b7e7e2e4e7e8e2e2e2e2e2e2e2e_1689000002?x-expires=4750000000&x-signature=placeholder"
+        },
+        {
+          id: "7499198045507046678",
+          title: "quick trim for this hedge in Cranhill today.",
+          thumb: "https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/6b8e2b7e7e2e4e7e8e2e2e2e2e2e2e2e_1689000003?x-expires=4750000000&x-signature=placeholder"
+        }
+      ];
+      let tiktokIndex = 0;
+      const thumb = document.getElementById('gallery-tiktok-thumb');
+      const title = document.getElementById('gallery-tiktok-title');
+      const link = document.getElementById('gallery-tiktok-link');
+      const prevBtn = document.getElementById('gallery-tiktok-prev');
+      const nextBtn = document.getElementById('gallery-tiktok-next');
+      const playOverlay = document.getElementById('gallery-tiktok-play');
+
+      function showTiktok(idx) {
+        const v = tiktokVideos[idx];
+        thumb.src = v.thumb;
+        thumb.alt = v.title;
+        title.textContent = v.title;
+        link.href = `https://www.tiktok.com/@aas.yardmen/video/${v.id}`;
+        thumb.style.display = '';
+        playOverlay.style.display = '';
+      }
+      prevBtn.addEventListener('click', () => {
+        tiktokIndex = (tiktokIndex - 1 + tiktokVideos.length) % tiktokVideos.length;
+        showTiktok(tiktokIndex);
+      });
+      nextBtn.addEventListener('click', () => {
+        tiktokIndex = (tiktokIndex + 1) % tiktokVideos.length;
+        showTiktok(tiktokIndex);
+      });
+      thumb.parentElement.addEventListener('click', () => {
+        window.open(`https://www.tiktok.com/@aas.yardmen/video/${tiktokVideos[tiktokIndex].id}`, '_blank');
+      });
+      showTiktok(tiktokIndex);
+    </script>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-green-700 text-center mb-10 animate__animated animate__fadeInDown">What Our Clients Say</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 rounded-xl shadow p-6 flex flex-col items-center text-center animate__animated animate__fadeInUp animate__delay-1s">
+          <div class="text-green-600 text-3xl mb-2 animate__animated animate__bounceIn"><i class="fas fa-quote-left"></i></div>
+          <p class="italic mb-4">“Fantastic service! My garden has never looked better. Quick, friendly, and professional.”</p>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-bold">SM</span>
+            <span class="flex text-yellow-400 text-lg">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </span>
+          </div>
+        </div>
+        <div class="bg-gray-50 rounded-xl shadow p-6 flex flex-col items-center text-center animate__animated animate__fadeInUp animate__delay-2s">
+          <div class="text-green-600 text-3xl mb-2 animate__animated animate__bounceIn"><i class="fas fa-quote-left"></i></div>
+          <p class="italic mb-4">“Prompt response and great value. Highly recommend AA’s Yardmen for any garden work.”</p>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-bold">JR</span>
+            <span class="flex text-yellow-400 text-lg">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </span>
+          </div>
+        </div>
+        <div class="bg-gray-50 rounded-xl shadow p-6 flex flex-col items-center text-center animate__animated animate__fadeInUp animate__delay-3s">
+          <div class="text-green-600 text-3xl mb-2 animate__animated animate__bounceIn"><i class="fas fa-quote-left"></i></div>
+          <p class="italic mb-4">“The team did a brilliant job with our patio and gutters. Will use again!”</p>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-bold">LT</span>
+            <span class="flex text-yellow-400 text-lg">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-green-700 text-center mb-10 animate__animated animate__fadeInDown">Frequently Asked Questions</h2>
+      <div class="max-w-2xl mx-auto space-y-4">
+        <div class="faq border rounded-lg bg-white shadow animate-fadeInUp animate-delay-1">
+          <button class="faq-q w-full text-left px-6 py-4 font-semibold text-lg flex justify-between items-center focus:outline-none" aria-expanded="false">
+            How much do your services cost?
+            <i class="fas fa-chevron-down ml-2 transition"></i>
+          </button>
+          <div class="faq-answer px-6 pb-4 text-gray-700">Prices depend on your garden size and needs. Contact us for a free, no-obligation quote.</div>
+        </div>
+        <div class="faq border rounded-lg bg-white shadow animate-fadeInUp animate-delay-2">
+          <button class="faq-q w-full text-left px-6 py-4 font-semibold text-lg flex justify-between items-center focus:outline-none" aria-expanded="false">
+            Are you insured?
+            <i class="fas fa-chevron-down ml-2 transition"></i>
+          </button>
+          <div class="faq-answer px-6 pb-4 text-gray-700">Yes, we are fully insured for all work carried out on your property.</div>
+        </div>
+        <div class="faq border rounded-lg bg-white shadow animate-fadeInUp animate-delay-3">
+          <button class="faq-q w-full text-left px-6 py-4 font-semibold text-lg flex justify-between items-center focus:outline-none" aria-expanded="false">
+            What areas do you cover?
+            <i class="fas fa-chevron-down ml-2 transition"></i>
+          </button>
+          <div class="faq-answer px-6 pb-4 text-gray-700">We serve Glasgow and surrounding areas. Unsure? Just ask!</div>
+        </div>
+        <div class="faq border rounded-lg bg-white shadow animate-fadeInUp animate-delay-4">
+          <button class="faq-q w-full text-left px-6 py-4 font-semibold text-lg flex justify-between items-center focus:outline-none" aria-expanded="false">
+            Do I need to be home?
+            <i class="fas fa-chevron-down ml-2 transition"></i>
+          </button>
+          <div class="faq-answer px-6 pb-4 text-gray-700">No, as long as we have access to your garden and any required instructions.</div>
+        </div>
+        <div class="faq border rounded-lg bg-white shadow animate-fadeInUp animate-delay-5">
+          <button class="faq-q w-full text-left px-6 py-4 font-semibold text-lg flex justify-between items-center focus:outline-none" aria-expanded="false">
+            How do I book?
+            <i class="fas fa-chevron-down ml-2 transition"></i>
+          </button>
+          <div class="faq-answer px-6 pb-4 text-gray-700">Use our contact form, WhatsApp, or call us to arrange your service.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-green-700 text-center mb-10 animate__animated animate__fadeInDown">Contact Us</h2>
+      <div class="flex flex-col md:flex-row gap-10 max-w-4xl mx-auto">
+        <!-- Contact Form -->
+        <form action="https://formsubmit.co/el/sozodu" method="POST" class="bg-gray-50 rounded-xl shadow p-8 flex-1 space-y-5 animate__animated animate__fadeInLeft">
+          <input type="hidden" name="_subject" value="New Quote Request from AA’s Yardmen">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_autoresponse" value="Thanks for your message! We'll be in touch shortly.">
+          <div>
+            <label for="name" class="block font-semibold mb-1">Name</label>
+            <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="name">
+          </div>
+          <div>
+            <label for="email" class="block font-semibold mb-1">Email</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-400 focus:outline-none" autocomplete="email">
+          </div>
+          <div>
+            <label for="message" class="block font-semibold mb-1">Message</label>
+            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-400 focus:outline-none"></textarea>
+          </div>
+          <button type="submit" class="w-full py-3 rounded-full bg-green-600 hover:bg-green-700 text-white font-semibold text-lg shadow transition animate__animated animate__pulse animate__infinite" aria-label="Send message">Send Message</button>
+        </form>
+        <!-- Contact Info -->
+        <div class="flex-1 flex flex-col justify-center gap-6 animate__animated animate__fadeInRight">
+          <div>
+            <h3 class="font-semibold text-lg mb-2 text-green-700">Address</h3>
+            <p>272 Bath Street<br>Glasgow</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-2 text-green-700">Working Hours</h3>
+            <p>Mon–Sat: 9am–6pm</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-2 text-green-700">Contact</h3>
+            <p>
+              <a href="mailto:info@aasyardmen.co.uk" class="text-green-700 hover:underline" aria-label="Email">info@aasyardmen.co.uk</a><br>
+              <a href="tel:+447000000000" class="text-green-700 hover:underline" aria-label="Phone">07516 487733</a>
+            </p>
+          </div>
+          <div class="flex gap-3 mt-2">
+            <a href="https://wa.me/447000000000" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2 rounded-full bg-green-600 hover:bg-green-700 text-white font-semibold shadow transition animate__animated animate__pulse animate__infinite" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+    </div>
+  </section>
+  <script>
+    // Example: Load portfolio items from a JSON endpoint or static file
+    fetch('https://aa-s-yardmen.github.io/Website/portfolio.json')
+      .then(res => res.json())
+      .then(items => {
+        const grid = document.getElementById('portfolio-grid');
+        items.forEach(item => {
+          const el = document.createElement('div');
+          el.className = 'bg-gray-50 rounded-xl shadow p-4 flex flex-col items-center';
+          el.innerHTML = `
+            <img src="${item.image}" alt="${item.title}" class="rounded-lg mb-3 w-full h-48 object-cover" loading="lazy">
+            <div class="font-semibold mb-2">${item.title}</div>
+            <p class="text-gray-600 text-sm mb-2">${item.description}</p>
+            <a href="${item.link}" target="_blank" class="text-green-700 hover:underline">View on TikTok</a>
+          `;
+          grid.appendChild(el);
+        });
+      });
+  </script>
+
+  <!-- Footer -->
+  <footer class="bg-green-900 text-white py-8 mt-12 animate__animated animate__fadeInUp">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="font-bold">AA’s Yardmen Ltd</span> &middot; SC755769<br>
+        272 Bath Street, Glasgow
+      </div>
+      <div class="flex gap-4 text-2xl mt-2 md:mt-0">
+        <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" class="hover:text-green-300"><i class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/447000000000" target="_blank" rel="noopener" aria-label="WhatsApp" class="hover:text-green-300"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.yell.com/" target="_blank" rel="noopener" aria-label="Yell" class="hover:text-green-300"><i class="fas fa-star"></i></a>
+      </div>
+      <div class="text-sm mt-2 md:mt-0">&copy; 2024 AA’s Yardmen Ltd. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Mobile nav, Gallery lightbox, FAQ accordion -->
+  <script>
+    // Mobile nav
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    navToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // Gallery Lightbox
+    const galleryBtns = document.querySelectorAll('.gallery-img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    galleryBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        lightboxImg.src = btn.querySelector('img').src.replace('w=400', 'w=1200');
+        lightboxImg.alt = btn.querySelector('img').alt;
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+      });
+    });
+    lightboxClose.addEventListener('click', () => {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      lightboxImg.src = '';
+    });
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        lightboxImg.src = '';
+      }
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq').forEach(faq => {
+      const btn = faq.querySelector('.faq-q');
+      btn.addEventListener('click', () => {
+        const open = faq.classList.toggle('faq-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        faq.querySelector('i').classList.toggle('fa-chevron-up', open);
+        faq.querySelector('i').classList.toggle('fa-chevron-down', !open);
+      });
+    });
+
+    // Scroll-to-top button logic
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) scrollBtn.classList.remove('hidden');
+      else scrollBtn.classList.add('hidden');
+    });
+    scrollBtn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+  </script>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/447000000000" target="_blank" aria-label="Chat on WhatsApp"
+     class="fixed z-50 bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-lg p-4 flex items-center justify-center text-3xl animate-bounce"
+     style="box-shadow:0 4px 24px #38f9d7aa;">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Scroll-to-Top Button -->
+  <button id="scrollTopBtn" aria-label="Scroll to top"
+    class="hidden fixed bottom-6 left-6 z-50 bg-green-700 text-white rounded-full p-3 shadow-lg text-2xl hover:bg-green-800 transition">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-lg p-4 flex flex-col md:flex-row items-center justify-between z-50" style="display:none;">
+    <span class="text-gray-800 mb-2 md:mb-0">We use cookies to improve your experience. By using our site, you agree to our <a href="/privacy.html" class="underline text-green-700">privacy policy</a>.</span>
+    <button id="cookie-accept" class="ml-4 px-4 py-2 bg-green-600 text-white rounded-full font-semibold hover:bg-green-700">Accept</button>
+  </div>
+  <script>
+    // Simple cookie consent
+    if (!localStorage.getItem('cookieAccepted')) {
+      document.getElementById('cookie-banner').style.display = 'flex';
+      document.getElementById('cookie-accept').onclick = function() {
+        localStorage.setItem('cookieAccepted', 'yes');
+        document.getElementById('cookie-banner').style.display = 'none';
+      };
+    }
+  </script>
+</body>
+</html>
