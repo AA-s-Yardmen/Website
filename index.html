@@ -13,44 +13,130 @@
             padding: 0;
         }
         body {
-            background: linear-gradient(135deg, #f9d423 0%, #ff4e50 100%);
+            background: repeating-linear-gradient(
+                135deg,
+                #f9d423 0px,
+                #f9d423 40px,
+                #ff4e50 40px,
+                #ff4e50 80px
+            );
             min-height: 100vh;
             height: 100vh;
             width: 100vw;
             overflow: hidden;
         }
         .ebook {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
+            display: flex;
+            flex-direction: row;
             width: 100vw;
             height: 100vh;
             background: rgba(255,255,255,0.97);
-            border-radius: 0;
-            box-shadow: none;
-            padding: 0;
             overflow: hidden;
-            z-index: 1;
+            box-shadow: 0 0 60px 0 rgba(0,0,0,0.13);
+            position: relative;
+        }
+        .ebook-spine {
+            width: 320px;
+            min-width: 220px;
+            background: linear-gradient(120deg, #ff4e50 0%, #f9d423 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 48px 24px 32px 24px;
+            box-shadow: 8px 0 32px 0 rgba(0,0,0,0.10);
+            z-index: 2;
+            border-top-right-radius: 24px;
+            border-bottom-right-radius: 24px;
+            position: relative;
+        }
+        .spine-title {
+            color: #fff;
+            font-size: 2.2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 0.5em;
+            text-shadow: 1px 2px 8px #ff5858;
+            letter-spacing: 1px;
+        }
+        .spine-logo {
+            font-size: 3.5rem;
+            margin-bottom: 0.5em;
+            filter: drop-shadow(0 2px 8px #fffbe7);
+        }
+        .spine-pages {
+            margin-top: 2em;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .spine-page-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.15rem;
+            color: #fffbe7;
+            opacity: 0.7;
+            cursor: pointer;
+            transition: opacity 0.2s, font-weight 0.2s, color 0.2s;
+            border-left: 4px solid transparent;
+            padding-left: 10px;
+        }
+        .spine-page-indicator.active {
+            opacity: 1;
+            font-weight: bold;
+            color: #fff;
+            font-size: 1.25rem;
+            text-shadow: 0 2px 8px #f7971e;
+            border-left: 4px solid #fff;
+            background: rgba(255,255,255,0.07);
+            border-radius: 0 8px 8px 0;
+        }
+        .spine-footer {
+            margin-top: auto;
+            color: #fffbe7;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        .ebook-content {
+            flex: 1;
+            position: relative;
+            background: transparent;
+            overflow: hidden;
+            display: flex;
+            align-items: stretch;
         }
         .ebook-page {
-            display: none;
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            width: 100vw;
-            height: 100vh;
-            padding: 0;
+            width: 100%;
+            height: 100%;
             background: transparent;
+            display: none;
+            z-index: 1;
+            animation: none;
         }
         .ebook-page.active {
             display: block;
-            animation: fadeIn 0.5s;
+            animation: pageCurl 0.7s cubic-bezier(.77,.2,.05,1.0);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px);}
-            to { opacity: 1; transform: translateY(0);}
+        @keyframes pageCurl {
+            from { opacity: 0; transform: rotateY(-30deg) scale(0.98);}
+            to { opacity: 1; transform: rotateY(0) scale(1);}
+        }
+        .page-shadow {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 24px;
+            height: 100%;
+            background: linear-gradient(to right,rgba(0,0,0,0.10),rgba(0,0,0,0.01) 80%);
+            z-index: 2;
+            pointer-events: none;
         }
         .cover-title {
             color: #ff4e50;
-            font-size: 3vw;
+            font-size: 2.7vw;
             font-weight: bold;
             text-align: center;
             margin-top: 7vh;
@@ -61,41 +147,6 @@
             font-size: 1.5vw;
             text-align: center;
             margin-bottom: 2em;
-        }
-        .page-controls {
-            position: absolute;
-            bottom: 4vh;
-            left: 0;
-            width: 100vw;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 4vw;
-            z-index: 10;
-        }
-        .page-btn {
-            background: linear-gradient(90deg, #36d1c4 0%, #ff5858 100%);
-            border: none;
-            color: #fff;
-            font-weight: bold;
-            border-radius: 30px;
-            padding: 1em 2.5em;
-            font-size: 1.3rem;
-            transition: background 0.2s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-        .page-btn:disabled {
-            background: #eee;
-            color: #aaa;
-            cursor: not-allowed;
-        }
-        .iframe-embed {
-            width: 100vw;
-            height: 88vh;
-            border: none;
-            border-radius: 0;
-            background: #f8f9fa;
-            box-shadow: none;
-            display: block;
         }
         .contact-card {
             background: rgba(255,255,255,0.92);
@@ -114,91 +165,144 @@
             color: #ff4e50;
             text-decoration: underline;
         }
+        .iframe-embed {
+            width: 100vw;
+            height: 88vh;
+            border: none;
+            border-radius: 0;
+            background: #f8f9fa;
+            box-shadow: none;
+            display: block;
+        }
+        .page-controls {
+            position: absolute;
+            bottom: 4vh;
+            left: 0;
+            width: 100vw;
+            display: flex;
+            justify-content: flex-start;
+            padding: 0 4vw;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .page-btn {
+            display: none;
+        }
+        .page-indicator {
+            position: absolute;
+            bottom: 4vh;
+            right: 4vw;
+            background: rgba(255,255,255,0.93);
+            color: #ff4e50;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 18px;
+            padding: 0.7em 1.5em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            z-index: 11;
+            letter-spacing: 1px;
+            pointer-events: none;
+            user-select: none;
+        }
         @media (max-width: 991px) {
+            .ebook-spine { width: 120px; padding: 24px 6px 18px 6px; }
+            .spine-title { font-size: 1.1rem; }
+            .spine-logo { font-size: 2rem; }
             .cover-title { font-size: 2rem; }
             .cover-subtitle { font-size: 1rem; }
             .iframe-embed { height: 70vh; }
         }
         @media (max-width: 575px) {
+            .ebook-spine { display: none; }
             .cover-title { font-size: 1.2rem; }
             .cover-subtitle { font-size: 0.9rem; }
             .iframe-embed { height: 50vh; }
             .page-controls { padding: 0 1vw; }
+            .page-indicator { right: 1vw; bottom: 1vh; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
     <div class="ebook">
-        <!-- Cover Page -->
-        <div class="ebook-page active" id="page-0">
-            <div class="cover-title">
-                <i class="bi bi-book-half"></i> AA Yardmen Websites
+        <div class="ebook-spine">
+            <div>
+                <div class="spine-logo"><i class="bi bi-book-half"></i></div>
+                <div class="spine-title">AA Yardmen<br>eBook</div>
             </div>
-            <div class="cover-subtitle">
-                Welcome! Please pick a preview build you would like.<br>
-                Flip through the pages to preview each site.<br><br>
-                <span style="font-size:2.5rem;">📖</span>
+            <div class="spine-pages">
+                <div class="spine-page-indicator active" data-page="0"><i class="bi bi-house-door"></i> Cover</div>
+                <div class="spine-page-indicator" data-page="1"><i class="bi bi-1-circle"></i> Preview 1</div>
+                <div class="spine-page-indicator" data-page="2"><i class="bi bi-2-circle"></i> Preview 2</div>
+                <div class="spine-page-indicator" data-page="3"><i class="bi bi-3-circle"></i> Preview 3</div>
             </div>
-            <div class="contact-card">
-                <h3><i class="bi bi-envelope-heart"></i> Have Questions?</h3>
-                <p>If you have any questions or want to discuss your own website, <a href="mailto:info@yourbusiness.com">contact us</a>! We're happy to help. 😊</p>
+            <div class="spine-footer">
+                <i class="bi bi-envelope-heart"></i> info@yourbusiness.com
             </div>
         </div>
-        <!-- Preview 1 -->
-        <div class="ebook-page" id="page-1">
-            <h2 class="text-center mb-3" style="margin-top:4vh;"><i class="bi bi-1-circle"></i> Preview 1</h2>
-            <iframe class="iframe-embed" src="Preview-1/index.html" title="Preview 1"></iframe>
-        </div>
-        <!-- Preview 2 -->
-        <div class="ebook-page" id="page-2">
-            <h2 class="text-center mb-3" style="margin-top:4vh;"><i class="bi bi-2-circle"></i> Preview 2</h2>
-            <iframe class="iframe-embed" src="Preview-2/index.html" title="Preview 2"></iframe>
-        </div>
-        <!-- Preview 3 -->
-        <div class="ebook-page" id="page-3">
-            <h2 class="text-center mb-3" style="margin-top:4vh;"><i class="bi bi-3-circle"></i> Preview 3</h2>
-            <iframe class="iframe-embed" src="Preview-3/index.html" title="Preview 3"></iframe>
-        </div>
-        <!-- Page Controls -->
-        <div class="page-controls">
-            <button class="page-btn" id="prevBtn" disabled>
-                <i class="bi bi-arrow-left-circle"></i> Previous
-            </button>
-            <button class="page-btn" id="nextBtn">
-                Next <i class="bi bi-arrow-right-circle"></i>
-            </button>
+        <div class="ebook-content">
+            <div class="page-shadow"></div>
+            <!-- Cover Page -->
+            <div class="ebook-page active" id="page-0">
+                <div class="cover-title">
+                    <i class="bi bi-book-half"></i> AA Yardmen Websites
+                </div>
+                <div class="cover-subtitle">
+                    Welcome! Please pick a preview build you would like.<br>
+                    Flip through the pages to preview each site.<br><br>
+                    <span style="font-size:2.5rem;">📖</span>
+                </div>
+                <div class="contact-card">
+                    <h3><i class="bi bi-envelope-heart"></i> Have Questions?</h3>
+                    <p>If you have any questions or want to discuss your own website, <a href="mailto:info@yourbusiness.com">contact us</a>! We're happy to help. 😊</p>
+                </div>
+            </div>
+            <!-- Preview 1 -->
+            <div class="ebook-page" id="page-1">
+                <h2 class="text-center mb-3" style="margin-top:4vh;"><i class="bi bi-1-circle"></i> Preview 1</h2>
+                <iframe class="iframe-embed" src="Preview-1/index.html" title="Preview 1"></iframe>
+            </div>
+            <!-- Preview 2 -->
+            <div class="ebook-page" id="page-2">
+                <h2 class="text-center mb-3" style="margin-top:4vh;"><i class="bi bi-2-circle"></i> Preview 2</h2>
+                <iframe class="iframe-embed" src="Preview-2/index.html" title="Preview 2"></iframe>
+            </div>
+            <!-- Preview 3 -->
+            <div class="ebook-page" id="page-3">
+                <h2 class="text-center mb-3" style="margin-top:4vh;"><i class="bi bi-3-circle"></i> Preview 3</h2>
+                <iframe class="iframe-embed" src="Preview-3/index.html" title="Preview 3"></iframe>
+            </div>
+            <!-- Page Controls -->
+            <div class="page-controls">
+            </div>
+            <div class="page-indicator" id="pageIndicator">
+                Page 1 of 4
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Simple page flipping logic
+        // Page flipping logic
         const totalPages = 4;
         let currentPage = 0;
         const showPage = (n) => {
             for (let i = 0; i < totalPages; i++) {
                 document.getElementById('page-' + i).classList.remove('active');
+                document.querySelector('.spine-page-indicator[data-page="' + i + '"]').classList.remove('active');
             }
             document.getElementById('page-' + n).classList.add('active');
-            document.getElementById('prevBtn').disabled = n === 0;
-            document.getElementById('nextBtn').disabled = n === totalPages - 1;
+            document.querySelector('.spine-page-indicator[data-page="' + n + '"]').classList.add('active');
+            document.getElementById('pageIndicator').textContent = `Page ${n+1} of ${totalPages}`;
         };
-        document.getElementById('prevBtn').addEventListener('click', () => {
-            if (currentPage > 0) {
-                currentPage--;
+        // Spine navigation
+        document.querySelectorAll('.spine-page-indicator').forEach(function(indicator) {
+            indicator.addEventListener('click', function() {
+                const page = parseInt(this.getAttribute('data-page'));
+                currentPage = page;
                 showPage(currentPage);
-            }
+            });
         });
-        document.getElementById('nextBtn').addEventListener('click', () => {
-            if (currentPage < totalPages - 1) {
-                currentPage++;
-                showPage(currentPage);
-            }
-        });
-        // Optional: Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') document.getElementById('nextBtn').click();
-            if (e.key === 'ArrowLeft') document.getElementById('prevBtn').click();
-        });
+        // Update page indicator on direct navigation
+        showPage(currentPage);
     </script>
 </body>
 </html>
